@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to my personal website. Hope you are interested in working together.">
@@ -9,10 +9,13 @@
     <meta property="og:description"
         content="Welcome to my personal website. Hope you are interested in working together." />
     <meta property="og:type" content="website" />
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f8644e9e-eb11-47e2-b0f1-23a428aabac7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script
+        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "f8644e9e-eb11-47e2-b0f1-23a428aabac7"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/animate">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Profile/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -22,7 +25,7 @@
     <link rel="shortcut icon"
         href="https://res.cloudinary.com/dswsimwec/image/upload/v1687525879/r9nvsl79apsvz86aat5j.png">
 
-    <title>Rifky Eka Pratama - Portfolio</title>
+    <title>Rifky Eka Pratama- Portfolio</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CFEX63DDB"></script>
@@ -63,7 +66,8 @@
                         <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
                         <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
                         <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="https://chllexandev.github.io/work" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="https://chllexandev.github.io/work" class="nav__link">Work</a>
+                        </li>
                         <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
                         <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
                     </ul>
@@ -76,6 +80,299 @@
         </header>
 
         <main class="l-main">
+<!-- connection status -->
+<style>
+    .wrapper1{
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  z-index: 3;
+  animation: show_toast 1s ease forwards;
+}
+@keyframes show_toast {
+  0%{
+    transform: translateX(-100%);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    transform: translateX(20px);
+  }
+}
+.wrapper1.hide{
+  animation: hide_toast 1s ease forwards;
+}
+@keyframes hide_toast {
+  0%{
+    transform: translateX(20px);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+}
+.wrapper1 .toast{
+  background: #fff;
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  border-left: 5px solid #2ecc71;
+  box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.15);
+  width: 430px;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+  justify-content: space-between;
+}
+.wrapper1 .toast.offline{
+  border-color: #ccc;
+  z-index: 3;
+}
+.toast .content2{
+  display: flex;
+  align-items: center;
+}
+.content2 .icon{
+  font-size: 25px;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background: #2ecc71;
+  z-index: 3;
+}
+.toast.offline .content2 .icon{
+  background: #ccc;
+}
+.content2 .details{
+  margin-left: 15px;
+}
+.details span{
+  font-size: 20px;
+  font-weight: 500;
+}
+.details p{
+  color: #878787;
+}
+.toast .close-icon{
+  color: #878787;
+  font-size: 23px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+.close-icon:hover{
+  background: #efefef;
+}
+</style>
+<div class="wrapper1">
+    <div class="toast">
+      <div class="content2">
+        <div class="icon"><i class="uil uil-wifi"></i></div>
+        <div class="details">
+          <span>You're online now</span>
+          <p>Hurray! Internet is connected.</p>
+        </div>
+      </div>
+      <div class="close-icon"><i class="uil uil-times"></i></div>
+    </div>
+  </div>
+
+  <script>
+    // Selecting all required elements
+const wrapper = document.querySelector(".wrapper1"),
+toast = wrapper.querySelector(".toast"),
+title = toast.querySelector("span"),
+subTitle = toast.querySelector("p"),
+wifiIcon = toast.querySelector(".icon"),
+closeIcon = toast.querySelector(".close-icon");
+window.onload = ()=>{
+    function ajax(){
+        let xhr = new XMLHttpRequest(); //creating new XML object
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true); //sending get request on this URL
+        xhr.onload = ()=>{ //once ajax loaded
+            //if ajax status is equal to 200 or less than 300 that mean user is getting data from that provided url
+            //or his/her response status is 200 that means he/she is online
+            if(xhr.status == 200 && xhr.status < 300){
+                toast.classList.remove("offline");
+                title.innerText = "You're online now";
+                subTitle.innerText = "Hurray! Internet is connected.";
+                wifiIcon.innerHTML = '<i class="uil uil-wifi"></i>';
+                closeIcon.onclick = ()=>{ //hide toast notification on close icon click
+                    wrapper.classList.add("hide");
+                }
+                setTimeout(()=>{ //hide the toast notification automatically after 5 seconds
+                    wrapper.classList.add("hide");
+                }, 5000);
+            }else{
+                offline(); //calling offline function if ajax status is not equal to 200 or not less that 300
+            }
+        }
+        xhr.onerror = ()=>{
+            offline(); ////calling offline function if the passed url is not correct or returning 404 or other error
+        }
+        xhr.send(); //sending get request to the passed url
+    }
+    function offline(){ //function for offline
+        wrapper.classList.remove("hide");
+        toast.classList.add("offline");
+        title.innerText = "You're offline now";
+        subTitle.innerText = "Opps! Internet is disconnected.";
+        wifiIcon.innerHTML = '<i class="uil uil-wifi-slash"></i>';
+    }
+    setInterval(()=>{ //this setInterval function call ajax frequently after 100ms
+        ajax();
+    }, 100);
+}
+  </script>
+            <!-- cookie -->
+            <style>
+                .wrapper {
+                    position: fixed;
+                    bottom: 50px;
+                    right: -370px;
+                    max-width: 345px;
+                    width: 100%;
+                    background: #c8f0ff;
+                    z-index: 3;
+                    border-radius: 8px;
+                    padding: 15px 25px 22px;
+                    transition: right 0.3s ease;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .wrapper.show {
+                    right: 20px;
+                }
+
+                .wrapper header {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 15px;
+                }
+
+                header i {
+                    color: #4070f4;
+                    font-size: 32px;
+                }
+
+                header h2 {
+                    color: #4070f4;
+                    font-weight: 500;
+                    top: 23px;
+                }
+
+                .wrapper .data1 {
+                    margin-top: 16px;
+                }
+
+                .wrapper .data1 p {
+                    color: #333;
+                    font-size: 16px;
+                }
+
+                .data1 p a {
+                    color: #4070f4;
+                    text-decoration: none;
+                }
+
+                .data1 p a:hover {
+                    text-decoration: underline;
+                }
+
+                .wrapper .buttons {
+                    margin-top: 16px;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                .buttons .button {
+                    border: none;
+                    color: #fff;
+                    padding: 8px 0;
+                    border-radius: 4px;
+                    background: #4070f4;
+                    cursor: pointer;
+                    width: calc(100% / 2 - 10px);
+                    transition: all 0.2s ease;
+                }
+
+                .buttons #acceptBtn:hover {
+                    background-color: #034bf1;
+                }
+
+                #declineBtn {
+                    border: 2px solid #4070f4;
+                    background-color: #fff;
+                    color: #4070f4;
+                }
+
+                #declineBtn:hover {
+                    background-color: #4070f4;
+                    color: #fff;
+                }
+            </style>
+
+            <div class="wrapper">
+                <header>
+                    <i class="bx bx-cookie"></i>
+                    <h2 class="cookies">Cookies Consent</h>
+                </header>
+                <div class="data1">
+                    ㅤㅤ
+                    ㅤㅤ
+                    ㅤㅤ
+                    <p>ㅤㅤ </p>
+                    <p>This website use cookies to help you have a superior and more relevant browsing experience on the
+                        website. <a href="#"> Read more...</a></p>
+                </div>
+                <div class="buttons">
+                    <button class="button" id="acceptBtn">Accept</button>
+                    <button class="button" id="declineBtn">Decline</button>
+                </div>
+            </div>
+
+            <script>
+                const cookieBox = document.querySelector(".wrapper"),
+                    buttons = document.querySelectorAll(".button");
+
+                const executeCodes = () => {
+                    //if cookie contains rifkyeka  it will be returned and below of this code will not run
+                    if (document.cookie.includes("tels.chllexandev.xyz")) return;
+                    cookieBox.classList.add("show");
+
+                    buttons.forEach((button) => {
+                        button.addEventListener("click", () => {
+                            cookieBox.classList.remove("show");
+
+                            //if button has acceptBtn id
+                            if (button.id == "acceptBtn") {
+                                //set cookies for 1 month. 60 = 1 min, 60 = 1 hours, 24 = 1 day, 30 = 30 days
+                                document.cookie = "CookieBy=tels.chllexandev.xyz; max-age=" + 60 * 60 * 24 * 30;
+                            }
+                        });
+                    });
+                };
+
+                //executeCodes function will be called on webpage load
+                window.addEventListener("load", executeCodes);
+            </script>
+
+
             <!--===== HOME =====-->
             <section class="intro-section" id="home">
                 <div class="container">
@@ -129,7 +426,7 @@
                                                 aria-hidden="true"></i></a></li>
                                     <li><a href="https://github.com/chllexandev"><i class="fa fa-github"
                                                 aria-hidden="true"></i></i></a></li>
-                                    <li><a href="https://www.facebook.com/rifky.e.pratama.14"><i class="fa fa-facebook"
+                                    <li><a href="https://www.facebook.com/rifky.e. .14"><i class="fa fa-facebook"
                                                 aria-hidden="true"></i></a></li>
                                     <li><a href="https://youtube.com/@ChlleXanDev"><i class="fa fa-youtube"
                                                 aria-hidden="true"></i></a></li>
@@ -264,7 +561,7 @@
                     </div>
                 </div>
             </section>
-        
+
 
             <!--===== PORTFOLIO =====-->
             <section class="portfolio section" id="portfolio">
@@ -281,6 +578,524 @@
 
                 </div>
             </section>
+            <!-- skill-bars -->
+            
+            <style>
+                ::selection{
+  color: #fff;
+  background: #6665ee;
+}
+html,body{
+  height: 100%;
+  align-items: center;
+}
+.skill-bars{
+  padding: 25px 30px;
+  width: 600px;
+
+  border-radius: 10px;
+}
+.skill-bars .bar{
+  margin: 20px 0;
+}
+.skill-bars .bar:first-child{
+  margin-top: 0px;
+}
+.skill-bars .bar .info{
+  margin-bottom: 5px;
+}
+.skill-bars .bar .info span{
+  font-weight: 500;
+  font-size: 17px;
+  opacity: 0;
+  animation: showText 0.5s 1s linear forwards;
+  align-items: center;
+}
+@keyframes showText {
+  100%{
+    opacity: 1;
+  }
+}
+.skill-bars .bar .progress-line{
+  height: 5px;
+  width: 170%;
+  position: relative;
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 10px;
+  box-shadow: inset 0 1px 1px rgba(119, 119, 119, 0.959),
+              0 4px rgba(119, 119, 119, 0.959);
+  animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.bar .progress-line.python span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #3c3fff;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.html span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #e7903e;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.uiux span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #3c3fff;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.data span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #e7903e;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.mysql span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #37539e;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.nodejs span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #3c3fff;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.github span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #3c3fff;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.design span{
+  height: 170%;
+  position: absolute;
+  border-radius: 10px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #8965ee;
+  animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.bar .progress-line.python span{
+  width: 85%;
+  align-items: center;
+}
+.bar .progress-line.html span{
+  width: 75%;
+  align-items: center;
+}
+.bar .progress-line.uiux span{
+  width: 90%;
+  align-items: center;
+}
+.bar .progress-line.data span{
+  width: 60%;
+  align-items: center;
+}
+.bar .progress-line.mysql span{
+  width: 70%;
+  align-items: center;
+}
+.bar .progress-line.nodejs span{
+  width: 70%;
+  align-items: center;
+}
+.bar .progress-line.github span{
+  width: 80%;
+  align-items: center;
+}
+.bar .progress-line.design span{
+  width: 90%;
+  align-items: center;
+}
+.progress-line span::before{
+  position: absolute;
+  content: "";
+  top: -10px;
+  right: 0;
+  height: 0;
+  width: 0;
+  border: 7px solid transparent;
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-color: #0a0a0a;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+.progress-line span::after{
+  position: absolute;
+  top: -28px;
+  right: 0;
+  font-weight: 500;
+  background: #070707;
+  color: #fff;
+  padding: 1px 8px;
+  font-size: 12px;
+  border-radius: 3px;
+  opacity: 0;
+  animation: showText2 0.5s 1.5s linear forwards;
+}
+@keyframes showText2 {
+  100%{
+    opacity: 1;
+  }
+}
+.progress-line.python span::after{
+  content: "85%";
+  align-items: center;
+}
+.progress-line.html span::after{
+  content: "75%";
+  align-items: center;
+}
+.progress-line.uiux span::after{
+  content: "90%";
+  align-items: center;
+}
+.progress-line.data span::after{
+  content: "60%";
+  align-items: center;
+}
+.progress-line.mysql span::after{
+  content: "70%";
+  align-items: center;
+}
+.progress-line.nodejs span::after{
+  content: "70%";
+  align-items: center;
+}
+.progress-line.github span::after{
+  content: "80%";
+  align-items: center;
+}
+.progress-line.design span::after{
+  content: "90%";
+  align-items: center;
+}
+            </style>
+            
+            <section class="skillbars section" id="skillbars">
+                <h2 class="section-title">Skill Bars</h2>
+                <div class="contact__container bd-grid">
+            <div class="skill-bars">
+                <div class="bar">
+                  <div class="info">
+                    <span>Python</span>
+                  </div>
+                  <div class="progress-line python">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="info">
+                    <span>HTML/Bootstrap/CI Framework</span>
+                  </div>
+                  <div class="progress-line html">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="info">
+                    <span>UI & UX</span>
+                  </div>
+                  <div class="progress-line uiux">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="info">
+                    <span>Data Analytics</span>
+                  </div>
+                  <div class="progress-line data">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bar">
+                  <div class="info">
+                    <span>MySQL Database</span>
+                  </div>
+                  <div class="progress-line mysql">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="bar">
+                    <div class="info">
+                      <span>JavaScript/Nodejs</span>
+                    </div>
+                    <div class="progress-line nodejs">
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="bar">
+                    <div class="info">
+                      <span>Github</span>
+                    </div>
+                    <div class="progress-line github">
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="bar">
+                    <div class="info">
+                      <span>Desain Grafis</span>
+                    </div>
+                    <div class="progress-line design">
+                      <span></span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+              </section>
+            <!-- experience -->
+            <style>
+
+                
+                ::selection{
+                  color: #00c3ff;
+                  background: #ff7979;
+                }
+                .wrapper2{
+                  max-width: 1080px;
+                  margin: 50px auto;
+                  padding: 0 20px;
+                  position: relative;
+                }
+                .wrapper2 .center-line{
+                  position: absolute;
+                  height: 100%;
+                  width: 4px;
+                  background: #36979b;
+                  left: 50%;
+                  top: 20px;
+                  transform: translateX(-50%);
+                }
+                .wrapper2 .row1 {
+                  opacity: 0;
+                  transform: translateY(-20px);
+                  animation: fade-in 1s ease-in-out forwards, slide-down 1s ease-in-out forwards;
+                }
+                
+                @keyframes fade-in {
+                  0% {
+                    opacity: 0;
+                  }
+                  100% {
+                    opacity: 1;
+                  }
+                }
+                
+                @keyframes slide-down {
+                  0% {
+                    transform: translateY(-20px);
+                  }
+                  100% {
+                    transform: translateY(0);
+                  }
+                }
+                .wrapper2 .row1{
+                  display: flex;
+                }
+                .wrapper2 .row-1{
+                  justify-content: flex-start;
+                }
+                .wrapper2 .row-2{
+                  justify-content: flex-end;
+                }
+                .wrapper2 .row1 section{
+                  background: #5bcbff;
+                  border-radius: 5px;
+                  width: calc(50% - 40px);
+                  padding: 20px;
+                  position: relative;
+                }
+                .wrapper2 .row1 section::before{
+                  position: absolute;
+                  content: "";
+                  height: 15px;
+                  width: 15px;
+                  background: #00b1a8;
+                  top: 28px;
+                  z-index: -1;
+                  transform: rotate(45deg);
+                }
+                .row-1 section::before{
+                  right: -7px;
+                }
+                .row-2 section::before{
+                  left: -7px;
+                }
+                .row1 section .icon,
+                .center-line .scroll-icon{
+                  position: absolute;
+                  background: #80d7ff;
+                  height: 40px;
+                  width: 40px;
+                  text-align: center;
+                  line-height: 40px;
+                  border-radius: 50%;
+                  color: #ff7979;
+                  font-size: 17px;
+                  box-shadow: 0 0 0 4px #04b8ff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+                }
+                .center-line .scroll-icon{
+                  bottom: 0px;
+                  left: 50%;
+                  font-size: 25px;
+                  transform: translateX(-50%);
+                }
+                .row-1 section .icon{
+                  top: 15px;
+                  right: -60px;
+                }
+                .row-2 section .icon{
+                  top: 15px;
+                  left: -60px;
+                }
+                .row1 section .details,
+                .row1 section .bottom{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+                .row1 section .details .title{
+                  font-size: 22px;
+                  font-weight: 600;
+                }
+                .row1 section p{
+                  margin: 10px 0 17px 0;
+                }
+                .row1 section .bottom a{
+                  text-decoration: none;
+                  background: #ff7979;
+                  color: #fff;
+                  padding: 7px 15px;
+                  border-radius: 5px;
+                  /* font-size: 17px; */
+                  font-weight: 400;
+                  transition: all 0.3s ease;
+                }
+                .row1 section .bottom a:hover{
+                  transform: scale(0.97);
+                }
+                @media(max-width: 790px){
+                  .wrapper2 .center-line{
+                    left: 40px;
+                  }
+                  .wrapper2 .row1{
+                    margin: 30px 0 3px 60px;
+                  }
+                  .wrapper2 .row1 section{
+                    width: 100%;
+                  }
+                  .row-1 section::before{
+                    left: -7px;
+                  }
+                  .row-1 section .icon{
+                    left: -60px;
+                  }
+                }
+                @media(max-width: 440px){
+                  .wrapper2 .center-line,
+                  .row1 section::before,
+                  .row1 section .icon{
+                    display: none;
+                  }
+                  .wrapper2 .row1{
+                    margin: 10px 0;
+                  }
+                }
+                </style>
+                <section class="timeline section" id="timeline">
+                    <h2 class="section-title">Timeline</h2>
+                <div class="wrapper2">
+                    <div class="center-line">
+                      <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
+                    </div>
+                    <div class="row1 row-1">
+                      <section>
+                        <i class="icon fas fa-home"></i>
+                        <div class="details1">
+                          <span class="title">School:</span>
+                          <span>Tahun 2022 - Sekarang</span>
+                        </div>
+                        <p>Saya bersekolah di jurusan multimedia. Selama saya belajar di multimedia saya memperdalam ilmu design saya.</p>
+                        <div class="bottom">
+                          <a href="#">Read more</a>
+                          <i>- Rifky Eka Pratama</i>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="row1 row-2">
+                      <section>
+                        <i class="icon fas fa-star"></i>
+                        <div class="details1">
+                          <span class="title">Freelancer:</span>
+                          <span>2020 - Sekarang</span>
+                        </div>
+                        <p>Semasa sekolah saya adalah seorang freelancer (Pekerja bebas) seperti Web Developer, UI/UX Designer, Desain grafis, Dan Video editing.</p>
+                        <div class="bottom">
+                          <a href="#">Read more</a>
+                          <i>- Rifky Eka Pratama</i>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="row1 row-1">
+                      <section>
+                        <i class="icon fas fa-rocket"></i>
+                        <div class="details1">
+                          <span class="title">Youtube:</span>
+                          <span>2020 - Sekarang</span>
+                        </div>
+                        <p>Selain mengisi waktu kosong saya menyempatkan diri untuk mempelajari dengan menonton video pembelajaran seputar dunia IT</p>
+                        <div class="bottom">
+                          <a href="#">Read more</a>
+                          <i>- Rifky Eka Pratama</i>
+                        </div>
+                      </section>
+                    </div>
+                    <div class="row1 row-2">
+                      <section>
+                        <i class="icon fas fa-globe"></i>
+                        <div class="details1">
+                          <span class="title">Project Direktorat Asset & Sustainable:</span>
+                          <span>Januari 2023 - April 2023</span>
+                        </div>
+                        <p>Pengalaman magang saya di University Telkom Bandung sebagai Direktorat Asset & Sustainable yang juga telah menambah kemampuan saya dalam meng imput data ke dalam Database</p>
+                        <div class="bottom">
+                          <a href="#">Read more</a>
+                          <i>- Rifky Eka Pratama</i>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </section>
             <!--===== CONTACT =====-->
             <section class="contact section" id="contact">
                 <h2 class="section-title">Contact</h2>
