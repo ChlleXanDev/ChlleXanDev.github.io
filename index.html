@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to my personal website. Hope you are interested in working together.">
@@ -53,7 +52,7 @@
             <div></div>
         </div>
     </section> -->
-
+    
         <main id="main-page">
             <!--===== HEADER =====-->
             <header class="l-header">
@@ -61,7 +60,12 @@
                     <div>
                         <a href="#home" class="nav__logo">Rifky Eka Pratama</a>
                     </div>
+<!-- translate -->
 
+
+  
+  
+<!-- --------- -->
                     <div class="nav__menu" id="nav-menu">
                         <ul class="nav__list">
                             <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
@@ -462,9 +466,10 @@
                                     <ul class="information margin-tb-30">
                                         <li><b>BORN : </b>April, 08 2006</li>
                                         <li><b>EMAIL : </b>admin@chllexandev.xyz </li>
-                                        <li><b>STATUS : </b>Hurt</li>
+                                        <li><b>MARITAL STATUS : </b>Taken</li>
                                         <li><b>Experience: </b>4 Years</li>
                                         <li><b>Phone: </b>+62 822 1975 6899</li>
+                                        <li class="container_gtranslate" id="google_translate_element"><b></b></li>
                                     </ul>
                                     <ul class="social-icons">
                                         <li><a href="https://instagram.com/rifkyekaxyz"><i class="fab fa-instagram"
@@ -480,6 +485,26 @@
                             </div>
                         </div>
                     </div>
+                    <!-- translate -->
+                    <script type="text/javascript">
+                                  function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement({pageLanguage: 'id'}, 'google_translate_element');
+                                  }
+                                  
+                                  function removeTranslation() {
+                                    var googleTranslateElement = document.getElementById('google_translate_element');
+                                    googleTranslateElement.innerHTML = '';
+                                  }
+                                  
+                                  document.addEventListener('DOMContentLoaded', function() {
+                                    var sidebar = document.getElementById('sidebar');
+                                    setTimeout(function() {
+                                      sidebar.classList.add('show');
+                                    }, 1000);
+                                  });
+                                  </script>
+                                  <script type="text/javascript" src="./change.js"></script>
+                    <!-- end -->
                     <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
                     <script src="profile/common-js/jquery-3.2.1.min.js"></script>
                     <script src="profile/common-js/tether.min.js"></script>
