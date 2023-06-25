@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to my personal website. Hope you are interested in working together.">
@@ -9,10 +9,13 @@
     <meta property="og:description"
         content="Welcome to my personal website. Hope you are interested in working together." />
     <meta property="og:type" content="website" />
-    <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="f8644e9e-eb11-47e2-b0f1-23a428aabac7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+    <script
+        type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "f8644e9e-eb11-47e2-b0f1-23a428aabac7"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/animate">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Profile/common.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -22,7 +25,7 @@
     <link rel="shortcut icon"
         href="https://res.cloudinary.com/dswsimwec/image/upload/v1687525879/r9nvsl79apsvz86aat5j.png">
 
-    <title>Rifky Eka Pratama - Portfolio</title>
+    <title>Rifky Eka Pratama- Portfolio</title>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CFEX63DDB"></script>
@@ -34,10 +37,10 @@
         gtag('config', 'G-4CFEX63DDB');
     </script>
 
-</head>
+    </head>
 
-<body>
-    <!-- <section class="loading-screen">
+    <body>
+        <!-- <section class="loading-screen">
         <div class="lds-roller">
             <div></div>
             <div></div>
@@ -50,325 +53,1249 @@
         </div>
     </section> -->
 
-    <main id="main-page">
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#home" class="nav__logo">Rifky Eka Pratama</a>
+        <main id="main-page">
+            <!--===== HEADER =====-->
+            <header class="l-header">
+                <nav class="nav bd-grid">
+                    <div>
+                        <a href="#home" class="nav__logo">Rifky Eka Pratama</a>
+                    </div>
+
+                    <div class="nav__menu" id="nav-menu">
+                        <ul class="nav__list">
+                            <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                            <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                            <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                            <li class="nav__item"><a href="https://chllexandev.github.io/work"
+                                    class="nav__link">Work</a>
+                            </li>
+                            <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                            <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class='bx bx-menu'></i>
+                    </div>
+                </nav>
+            </header>
+
+            <main class="l-main">
+                <!-- connection status -->
+                <style>
+                    .wrapper1 {
+                        position: absolute;
+                        display: flex;
+                        top: 100px;
+                        left: 20px;
+                        z-index: 3;
+                        animation: show_toast 1s ease forwards;
+                    }
+
+                    @keyframes show_toast {
+                        0% {
+                            transform: translateX(-100%);
+                        }
+
+                        40% {
+                            transform: translateX(10%);
+                        }
+
+                        80%,
+                        100% {
+                            transform: translateX(20px);
+                        }
+                    }
+
+                    .wrapper1.hide {
+                        animation: hide_toast 1s ease forwards;
+                    }
+
+                    @keyframes hide_toast {
+                        0% {
+                            transform: translateX(20px);
+                        }
+
+                        40% {
+                            transform: translateX(10%);
+                        }
+
+                        80%,
+                        100% {
+                            opacity: 0;
+                            pointer-events: none;
+                            transform: translateX(-100%);
+                        }
+                    }
+
+                    .wrapper1 .toast {
+                        background: #fff;
+                        padding: 20px 15px 20px 20px;
+                        border-radius: 10px;
+                        border-left: 5px solid #2ecc71;
+                        box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.15);
+                        width: 430px;
+                        display: flex;
+                        align-items: center;
+                        z-index: 3;
+                        justify-content: space-between;
+                    }
+
+                    .wrapper1 .toast.offline {
+                        border-color: #ccc;
+                        z-index: 3;
+                    }
+
+                    .toast .content2 {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    .content2 .icon {
+                        font-size: 25px;
+                        color: #fff;
+                        height: 50px;
+                        width: 50px;
+                        text-align: center;
+                        line-height: 50px;
+                        border-radius: 50%;
+                        background: #2ecc71;
+                        z-index: 3;
+                    }
+
+                    .toast.offline .content2 .icon {
+                        background: #ccc;
+                    }
+
+                    .content2 .details {
+                        margin-left: 15px;
+                    }
+
+                    .details span {
+                        font-size: 20px;
+                        font-weight: 500;
+                    }
+
+                    .details p {
+                        color: #878787;
+                    }
+
+                    .toast .close-icon {
+                        color: #878787;
+                        font-size: 23px;
+                        cursor: pointer;
+                        height: 40px;
+                        width: 40px;
+                        text-align: center;
+                        line-height: 40px;
+                        border-radius: 50%;
+                        background: #f2f2f2;
+                        transition: all 0.3s ease;
+                        z-index: 3;
+                    }
+
+                    .close-icon:hover {
+                        background: #efefef;
+                    }
+                </style>
+                <div class="wrapper1">
+                    <div class="toast">
+                        <div class="content2">
+                            <div class="icon"><i class="uil uil-wifi"></i></div>
+                            <div class="details">
+                                <span>You're online now</span>
+                                <p>Hurray! Internet is connected.</p>
+                            </div>
+                        </div>
+                        <div class="close-icon"><i class="uil uil-times"></i></div>
+                    </div>
                 </div>
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="https://chllexandev.github.io/work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#portfolio" class="nav__link">Portfolio</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
+                <script>
+                    // Selecting all required elements
+                    const wrapper = document.querySelector(".wrapper1"),
+                        toast = wrapper.querySelector(".toast"),
+                        title = toast.querySelector("span"),
+                        subTitle = toast.querySelector("p"),
+                        wifiIcon = toast.querySelector(".icon"),
+                        closeIcon = toast.querySelector(".close-icon");
+                    window.onload = () => {
+                        function ajax() {
+                            let xhr = new XMLHttpRequest(); //creating new XML object
+                            xhr.open("GET", "https://jsonplaceholder.typicode.com/posts", true); //sending get request on this URL
+                            xhr.onload = () => { //once ajax loaded
+                                //if ajax status is equal to 200 or less than 300 that mean user is getting data from that provided url
+                                //or his/her response status is 200 that means he/she is online
+                                if (xhr.status == 200 && xhr.status < 300) {
+                                    toast.classList.remove("offline");
+                                    title.innerText = "You're online now";
+                                    subTitle.innerText = "Hurray! Internet is connected.";
+                                    wifiIcon.innerHTML = '<i class="uil uil-wifi"></i>';
+                                    closeIcon.onclick = () => { //hide toast notification on close icon click
+                                        wrapper.classList.add("hide");
+                                    }
+                                    setTimeout(() => { //hide the toast notification automatically after 5 seconds
+                                        wrapper.classList.add("hide");
+                                    }, 5000);
+                                } else {
+                                    offline(); //calling offline function if ajax status is not equal to 200 or not less that 300
+                                }
+                            }
+                            xhr.onerror = () => {
+                                offline(); ////calling offline function if the passed url is not correct or returning 404 or other error
+                            }
+                            xhr.send(); //sending get request to the passed url
+                        }
+                        function offline() { //function for offline
+                            wrapper.classList.remove("hide");
+                            toast.classList.add("offline");
+                            title.innerText = "You're offline now";
+                            subTitle.innerText = "Opps! Internet is disconnected.";
+                            wifiIcon.innerHTML = '<i class="uil uil-wifi-slash"></i>';
+                        }
+                        setInterval(() => { //this setInterval function call ajax frequently after 100ms
+                            ajax();
+                        }, 100);
+                    }
+                </script>
+                <!-- cookie -->
+                <style>
+                    .wrapper {
+                        position: fixed;
+                        bottom: 50px;
+                        right: -370px;
+                        max-width: 345px;
+                        width: 100%;
+                        background: #c8f0ff;
+                        display: flex;
+                        z-index: 3;
+                        border-radius: 8px;
+                        padding: 15px 25px 22px;
+                        transition: right 0.3s ease;
+                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .wrapper.show {
+                        right: 20px;
+                    }
+
+                    .wrapper header {
+                        display: flex;
+                        align-items: center;
+                        column-gap: 15px;
+                    }
+
+                    header i {
+                        color: #4070f4;
+                        font-size: 32px;
+                    }
+
+                    header h2 {
+                        color: #4070f4;
+                        font-weight: 500;
+                        top: 23px;
+                    }
+
+                    .wrapper .data1 {
+                        margin-top: 16px;
+                    }
+
+                    .wrapper .data1 p {
+                        color: #333;
+                        font-size: 16px;
+                    }
+
+                    .data1 p a {
+                        color: #4070f4;
+                        text-decoration: none;
+                    }
+
+                    .data1 p a:hover {
+                        text-decoration: underline;
+                    }
+
+                    .wrapper .buttons {
+                        margin-top: 16px;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    .buttons .button {
+                        border: none;
+                        color: #fff;
+                        padding: 8px 0;
+                        border-radius: 4px;
+                        background: #4070f4;
+                        cursor: pointer;
+                        width: calc(100% / 2 - 10px);
+                        transition: all 0.2s ease;
+                    }
+
+                    .buttons #acceptBtn:hover {
+                        background-color: #034bf1;
+                    }
+
+                    #declineBtn {
+                        border: 2px solid #4070f4;
+                        background-color: #fff;
+                        color: #4070f4;
+                    }
+
+                    #declineBtn:hover {
+                        background-color: #4070f4;
+                        color: #fff;
+                    }
+                </style>
+
+                <div class="wrapper">
+                    <header>
+                        <i class="bx bx-cookie"></i>
+                        <h2 class="cookies">Cookies Consent</h>
+                    </header>
+                    <div class="data1">
+                        ㅤㅤ
+                        ㅤㅤ
+                        ㅤㅤ
+                        <p>ㅤㅤ </p>
+                        <p>This website use cookies to help you have a superior and more relevant browsing experience on
+                            the
+                            website. <a href="#"> Read more...</a></p>
+                    </div>
+                    <div class="buttons">
+                        <button class="button" id="acceptBtn">Accept</button>
+                        <button class="button" id="declineBtn">Decline</button>
+                    </div>
                 </div>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+                <script>
+                    const cookieBox = document.querySelector(".wrapper"),
+                        buttons = document.querySelectorAll(".button");
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="intro-section" id="home">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-1 col-lg-2"></div>
-                        <div class="col-md-10 col-lg-8">
-                            <div class="intro">
-                                <div class="profile-img">
+                    const executeCodes = () => {
+                        //if cookie contains rifkyeka  it will be returned and below of this code will not run
+                        if (document.cookie.includes("tels.chllexandev.xyz")) return;
+                        cookieBox.classList.add("show");
+
+                        buttons.forEach((button) => {
+                            button.addEventListener("click", () => {
+                                cookieBox.classList.remove("show");
+
+                                //if button has acceptBtn id
+                                if (button.id == "acceptBtn") {
+                                    //set cookies for 1 month. 60 = 1 min, 60 = 1 hours, 24 = 1 day, 30 = 30 days
+                                    document.cookie = "CookieBy=tels.chllexandev.xyz; max-age=" + 60 * 60 * 24 * 30;
+                                }
+                            });
+                        });
+                    };
+
+                    //executeCodes function will be called on webpage load
+                    window.addEventListener("load", executeCodes);
+                </script>
 
 
-                                    <script data-pagespeed-no-defer>//<![CDATA[
-                                        (function () {
-                                            for (var g = "function" == typeof Object.defineProperties ? Object.defineProperty : function (b, c, a) { if (a.get || a.set) throw new TypeError("ES3 does not support getters and setters."); b != Array.prototype && b != Object.prototype && (b[c] = a.value) }, h = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this, k = ["String", "prototype", "repeat"], l = 0; l < k.length - 1; l++) { var m = k[l]; m in h || (h[m] = {}); h = h[m] }
-                                            var n = k[k.length - 1], p = h[n], q = p ? p : function (b) { var c; if (null == this) throw new TypeError("The 'this' value for String.prototype.repeat must not be null or undefined"); c = this + ""; if (0 > b || 1342177279 < b) throw new RangeError("Invalid count value"); b |= 0; for (var a = ""; b;)if (b & 1 && (a += c), b >>>= 1) c += c; return a }; q != p && null != q && g(h, n, { configurable: !0, writable: !0, value: q }); var t = this;
-                                            function u(b, c) { var a = b.split("."), d = t; a[0] in d || !d.execScript || d.execScript("var " + a[0]); for (var e; a.length && (e = a.shift());)a.length || void 0 === c ? d[e] ? d = d[e] : d = d[e] = {} : d[e] = c }; function v(b) { var c = b.length; if (0 < c) { for (var a = Array(c), d = 0; d < c; d++)a[d] = b[d]; return a } return [] }; function w(b) { var c = window; if (c.addEventListener) c.addEventListener("load", b, !1); else if (c.attachEvent) c.attachEvent("onload", b); else { var a = c.onload; c.onload = function () { b.call(this); a && a.call(this) } } }; var x; function y(b, c, a, d, e) { this.h = b; this.j = c; this.l = a; this.f = e; this.g = { height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight, width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth }; this.i = d; this.b = {}; this.a = []; this.c = {} }
-                                            function z(b, c) {
-                                                var a, d, e = c.getAttribute("data-pagespeed-url-hash"); if (a = e && !(e in b.c)) if (0 >= c.offsetWidth && 0 >= c.offsetHeight) a = !1; else { d = c.getBoundingClientRect(); var f = document.body; a = d.top + ("pageYOffset" in window ? window.pageYOffset : (document.documentElement || f.parentNode || f).scrollTop); d = d.left + ("pageXOffset" in window ? window.pageXOffset : (document.documentElement || f.parentNode || f).scrollLeft); f = a.toString() + "," + d; b.b.hasOwnProperty(f) ? a = !1 : (b.b[f] = !0, a = a <= b.g.height && d <= b.g.width) } a && (b.a.push(e),
-                                                    b.c[e] = !0)
-                                            } y.prototype.checkImageForCriticality = function (b) { b.getBoundingClientRect && z(this, b) }; u("pagespeed.CriticalImages.checkImageForCriticality", function (b) { x.checkImageForCriticality(b) }); u("pagespeed.CriticalImages.checkCriticalImages", function () { A(x) });
-                                            function A(b) {
-                                                b.b = {}; for (var c = ["IMG", "INPUT"], a = [], d = 0; d < c.length; ++d)a = a.concat(v(document.getElementsByTagName(c[d]))); if (a.length && a[0].getBoundingClientRect) {
-                                                    for (d = 0; c = a[d]; ++d)z(b, c); a = "oh=" + b.l; b.f && (a += "&n=" + b.f); if (c = !!b.a.length) for (a += "&ci=" + encodeURIComponent(b.a[0]), d = 1; d < b.a.length; ++d) { var e = "," + encodeURIComponent(b.a[d]); 131072 >= a.length + e.length && (a += e) } b.i && (e = "&rd=" + encodeURIComponent(JSON.stringify(B())), 131072 >= a.length + e.length && (a += e), c = !0); C = a; if (c) {
-                                                        d = b.h; b = b.j; var f; if (window.XMLHttpRequest) f =
-                                                            new XMLHttpRequest; else if (window.ActiveXObject) try { f = new ActiveXObject("Msxml2.XMLHTTP") } catch (r) { try { f = new ActiveXObject("Microsoft.XMLHTTP") } catch (D) { } } f && (f.open("POST", d + (-1 == d.indexOf("?") ? "?" : "&") + "url=" + encodeURIComponent(b)), f.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), f.send(a))
+                <!--===== HOME =====-->
+                <section class="intro-section" id="home">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-1 col-lg-2"></div>
+                            <div class="col-md-10 col-lg-8">
+                                <div class="intro">
+                                    <div class="profile-img">
+
+
+                                        <script data-pagespeed-no-defer>//<![CDATA[
+                                            (function () {
+                                                for (var g = "function" == typeof Object.defineProperties ? Object.defineProperty : function (b, c, a) { if (a.get || a.set) throw new TypeError("ES3 does not support getters and setters."); b != Array.prototype && b != Object.prototype && (b[c] = a.value) }, h = "undefined" != typeof window && window === this ? this : "undefined" != typeof global && null != global ? global : this, k = ["String", "prototype", "repeat"], l = 0; l < k.length - 1; l++) { var m = k[l]; m in h || (h[m] = {}); h = h[m] }
+                                                var n = k[k.length - 1], p = h[n], q = p ? p : function (b) { var c; if (null == this) throw new TypeError("The 'this' value for String.prototype.repeat must not be null or undefined"); c = this + ""; if (0 > b || 1342177279 < b) throw new RangeError("Invalid count value"); b |= 0; for (var a = ""; b;)if (b & 1 && (a += c), b >>>= 1) c += c; return a }; q != p && null != q && g(h, n, { configurable: !0, writable: !0, value: q }); var t = this;
+                                                function u(b, c) { var a = b.split("."), d = t; a[0] in d || !d.execScript || d.execScript("var " + a[0]); for (var e; a.length && (e = a.shift());)a.length || void 0 === c ? d[e] ? d = d[e] : d = d[e] = {} : d[e] = c }; function v(b) { var c = b.length; if (0 < c) { for (var a = Array(c), d = 0; d < c; d++)a[d] = b[d]; return a } return [] }; function w(b) { var c = window; if (c.addEventListener) c.addEventListener("load", b, !1); else if (c.attachEvent) c.attachEvent("onload", b); else { var a = c.onload; c.onload = function () { b.call(this); a && a.call(this) } } }; var x; function y(b, c, a, d, e) { this.h = b; this.j = c; this.l = a; this.f = e; this.g = { height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight, width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth }; this.i = d; this.b = {}; this.a = []; this.c = {} }
+                                                function z(b, c) {
+                                                    var a, d, e = c.getAttribute("data-pagespeed-url-hash"); if (a = e && !(e in b.c)) if (0 >= c.offsetWidth && 0 >= c.offsetHeight) a = !1; else { d = c.getBoundingClientRect(); var f = document.body; a = d.top + ("pageYOffset" in window ? window.pageYOffset : (document.documentElement || f.parentNode || f).scrollTop); d = d.left + ("pageXOffset" in window ? window.pageXOffset : (document.documentElement || f.parentNode || f).scrollLeft); f = a.toString() + "," + d; b.b.hasOwnProperty(f) ? a = !1 : (b.b[f] = !0, a = a <= b.g.height && d <= b.g.width) } a && (b.a.push(e),
+                                                        b.c[e] = !0)
+                                                } y.prototype.checkImageForCriticality = function (b) { b.getBoundingClientRect && z(this, b) }; u("pagespeed.CriticalImages.checkImageForCriticality", function (b) { x.checkImageForCriticality(b) }); u("pagespeed.CriticalImages.checkCriticalImages", function () { A(x) });
+                                                function A(b) {
+                                                    b.b = {}; for (var c = ["IMG", "INPUT"], a = [], d = 0; d < c.length; ++d)a = a.concat(v(document.getElementsByTagName(c[d]))); if (a.length && a[0].getBoundingClientRect) {
+                                                        for (d = 0; c = a[d]; ++d)z(b, c); a = "oh=" + b.l; b.f && (a += "&n=" + b.f); if (c = !!b.a.length) for (a += "&ci=" + encodeURIComponent(b.a[0]), d = 1; d < b.a.length; ++d) { var e = "," + encodeURIComponent(b.a[d]); 131072 >= a.length + e.length && (a += e) } b.i && (e = "&rd=" + encodeURIComponent(JSON.stringify(B())), 131072 >= a.length + e.length && (a += e), c = !0); C = a; if (c) {
+                                                            d = b.h; b = b.j; var f; if (window.XMLHttpRequest) f =
+                                                                new XMLHttpRequest; else if (window.ActiveXObject) try { f = new ActiveXObject("Msxml2.XMLHTTP") } catch (r) { try { f = new ActiveXObject("Microsoft.XMLHTTP") } catch (D) { } } f && (f.open("POST", d + (-1 == d.indexOf("?") ? "?" : "&") + "url=" + encodeURIComponent(b)), f.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"), f.send(a))
+                                                        }
                                                     }
                                                 }
-                                            }
-                                            function B() { var b = {}, c; c = document.getElementsByTagName("IMG"); if (!c.length) return {}; var a = c[0]; if (!("naturalWidth" in a && "naturalHeight" in a)) return {}; for (var d = 0; a = c[d]; ++d) { var e = a.getAttribute("data-pagespeed-url-hash"); e && (!(e in b) && 0 < a.width && 0 < a.height && 0 < a.naturalWidth && 0 < a.naturalHeight || e in b && a.width >= b[e].o && a.height >= b[e].m) && (b[e] = { rw: a.width, rh: a.height, ow: a.naturalWidth, oh: a.naturalHeight }) } return b } var C = ""; u("pagespeed.CriticalImages.getBeaconData", function () { return C });
-                                            u("pagespeed.CriticalImages.Run", function (b, c, a, d, e, f) { var r = new y(b, c, a, e, f); x = r; d && w(function () { window.setTimeout(function () { A(r) }, 0) }) });
-                                        })();
+                                                function B() { var b = {}, c; c = document.getElementsByTagName("IMG"); if (!c.length) return {}; var a = c[0]; if (!("naturalWidth" in a && "naturalHeight" in a)) return {}; for (var d = 0; a = c[d]; ++d) { var e = a.getAttribute("data-pagespeed-url-hash"); e && (!(e in b) && 0 < a.width && 0 < a.height && 0 < a.naturalWidth && 0 < a.naturalHeight || e in b && a.width >= b[e].o && a.height >= b[e].m) && (b[e] = { rw: a.width, rh: a.height, ow: a.naturalWidth, oh: a.naturalHeight }) } return b } var C = ""; u("pagespeed.CriticalImages.getBeaconData", function () { return C });
+                                                u("pagespeed.CriticalImages.Run", function (b, c, a, d, e, f) { var r = new y(b, c, a, e, f); x = r; d && w(function () { window.setTimeout(function () { A(r) }, 0) }) });
+                                            })();
 
-                                        pagespeed.CriticalImages.Run('/mod_pagespeed_beacon', 'https://preview.colorlib.com/theme/cvportfolio/', '-ilGEe-FWC', true, false, 'dBWwrJbcCq0');
+                                            pagespeed.CriticalImages.Run('/mod_pagespeed_beacon', 'https://preview.colorlib.com/theme/cvportfolio/', '-ilGEe-FWC', true, false, 'dBWwrJbcCq0');
         //]]></script><img src="logo.png" alt="" data-pagespeed-url-hash="1246592755"
-                                        onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                                </div>
-                                <h2 class="h2"> Hi, I'm</h2>
-                                <h2 class="h2"><span class="span elvina typed-text"></span><span
-                                        class="cursor">&nbsp;</span>
-                                </h2>
+                                            onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+                                    </div>
+                                    <h2 class="h2"> Hi, I'm</h2>
+                                    <h2 class="h2"><span class="span elvina typed-text"></span><span
+                                            class="cursor">&nbsp;</span>
+                                    </h2>
 
-                                <h4 class="font-yellow">Beginner Programmer</h4>
-                                <ul class="information margin-tb-30">
-                                    <li><b>BORN : </b>April, 08 2006</li>
-                                    <li><b>EMAIL : </b>admin@chllexandev.xyz </li>
-                                    <li><b>MARITAL STATUS : </b>Taken</li>
-                                    <li><b>Experience: </b>4 Years</li>
-                                    <li><b>Phone: </b>+62 822 1975 6899</li>
-                                </ul>
-                                <ul class="social-icons">
-                                    <li><a href="https://instagram.com/rifkyekaxyz"><i class="fa fa-instagram"
-                                                aria-hidden="true"></i></a></li>
-                                    <li><a href="https://github.com/chllexandev"><i class="fa fa-github"
-                                                aria-hidden="true"></i></i></a></li>
-                                    <li><a href="https://www.facebook.com/rifky.e.pratama.14"><i class="fa fa-facebook"
-                                                aria-hidden="true"></i></a></li>
-                                    <li><a href="https://youtube.com/@ChlleXanDev"><i class="fa fa-youtube"
-                                                aria-hidden="true"></i></a></li>
-                                </ul>
+                                    <h4 class="font-yellow">Beginner Programmer</h4>
+                                    <ul class="information margin-tb-30">
+                                        <li><b>BORN : </b>April, 08 2006</li>
+                                        <li><b>EMAIL : </b>admin@chllexandev.xyz </li>
+                                        <li><b>MARITAL STATUS : </b>Taken</li>
+                                        <li><b>Experience: </b>4 Years</li>
+                                        <li><b>Phone: </b>+62 822 1975 6899</li>
+                                    </ul>
+                                    <ul class="social-icons">
+                                        <li><a href="https://instagram.com/rifkyekaxyz"><i class="fa fa-instagram"
+                                                    aria-hidden="true"></i></a></li>
+                                        <li><a href="https://github.com/chllexandev"><i class="fa fa-github"
+                                                    aria-hidden="true"></i></i></a></li>
+                                        <li><a href="https://www.facebook.com/rifky.e. .14"><i class="fa fa-facebook"
+                                                    aria-hidden="true"></i></a></li>
+                                        <li><a href="https://youtube.com/@ChlleXanDev"><i class="fa fa-youtube"
+                                                    aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
-                <script src="profile/common-js/jquery-3.2.1.min.js"></script>
-                <script src="profile/common-js/tether.min.js"></script>
-                <script src="profile/common-js/bootstrap.js"></script>
-                <script
-                    src="profile/common-js/isotope.pkgd.min.js+jquery.waypoints.min.js+progressbar.min.js+jquery.fluidbox.min.js+scripts.js.pagespeed.jc.9Pm3Vx--mG.js"></script>
-                <script>eval(mod_pagespeed_c1zmmXJ4$R);</script>
-                <script>
-                    const typedTextSpan = document.querySelector(".typed-text");
-                    const cursorSpan = document.querySelector(".cursor");
+                    <script src="https://unpkg.com/ionicons@5.5.1/dist/ionicons.js"></script>
+                    <script src="profile/common-js/jquery-3.2.1.min.js"></script>
+                    <script src="profile/common-js/tether.min.js"></script>
+                    <script src="profile/common-js/bootstrap.js"></script>
+                    <script
+                        src="profile/common-js/isotope.pkgd.min.js+jquery.waypoints.min.js+progressbar.min.js+jquery.fluidbox.min.js+scripts.js.pagespeed.jc.9Pm3Vx--mG.js"></script>
+                    <script>eval(mod_pagespeed_c1zmmXJ4$R);</script>
+                    <script>
+                        const typedTextSpan = document.querySelector(".typed-text");
+                        const cursorSpan = document.querySelector(".cursor");
 
-                    const textArray = ["Rifky Eka Pratama"];
-                    const typingDelay = 100;
-                    const erasingDelay = 100;
-                    const newTextDelay = 2500; // Delay between current and next text
-                    let textArrayIndex = 0;
-                    let charIndex = 0;
+                        const textArray = ["Rifky Eka Pratama"];
+                        const typingDelay = 100;
+                        const erasingDelay = 100;
+                        const newTextDelay = 2500; // Delay between current and next text
+                        let textArrayIndex = 0;
+                        let charIndex = 0;
 
-                    function type() {
-                        if (charIndex < textArray[textArrayIndex].length) {
-                            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-                            charIndex++;
-                            setTimeout(type, typingDelay);
+                        function type() {
+                            if (charIndex < textArray[textArrayIndex].length) {
+                                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                                charIndex++;
+                                setTimeout(type, typingDelay);
+                            }
+                            else {
+                                cursorSpan.classList.remove("typing");
+                                setTimeout(erase, newTextDelay);
+                            }
                         }
-                        else {
-                            cursorSpan.classList.remove("typing");
-                            setTimeout(erase, newTextDelay);
+
+                        function erase() {
+                            if (charIndex > 0) {
+                                if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+                                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                                charIndex--;
+                                setTimeout(erase, erasingDelay);
+                            }
+                            else {
+                                cursorSpan.classList.remove("typing");
+                                textArrayIndex++;
+                                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                                setTimeout(type, typingDelay + 1100);
+                            }
                         }
-                    }
 
-                    function erase() {
-                        if (charIndex > 0) {
-                            if (!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
-                            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-                            charIndex--;
-                            setTimeout(erase, erasingDelay);
-                        }
-                        else {
-                            cursorSpan.classList.remove("typing");
-                            textArrayIndex++;
-                            if (textArrayIndex >= textArray.length) textArrayIndex = 0;
-                            setTimeout(type, typingDelay + 1100);
-                        }
-                    }
+                        document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
+                            if (textArray.length) setTimeout(type, newTextDelay + 250);
+                        });
+                    </script>
 
-                    document.addEventListener("DOMContentLoaded", function () { // On DOM Load initiate the effect
-                        if (textArray.length) setTimeout(type, newTextDelay + 250);
-                    });
-                </script>
-
-                <!-- end profile -->
+                    <!-- end profile -->
 
 
-                <div class="home__scroll">
-                    <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt'></i>Scroll down</a>
-                </div>
-            </section>
-
-            <!--===== ABOUT =====-->
-            <section class="about section" id="about">
-                <h2 class="section-title">About</h2>
-
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="https://res.cloudinary.com/dswsimwec/image/upload/v1687525879/r9nvsl79apsvz86aat5j.png"
-                            alt="Rifky Eka Pratama">
+                    <div class="home__scroll">
+                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt'></i>Scroll down</a>
                     </div>
+                </section>
 
-                    <div>
-                        <h2 class="about__subtitle">I'm Rifky Eka Pratama</h2>
-                        <span class="about__profession">Frontend and Backend Developer</span>
-                        <p class="about__text">
-                            Expert <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/"
-                                target="_blank" style="color: red; font-weight: 600;">BOOTSTRAP v5</a>, <a
-                                href="https://www.javascript.com/" target="_blank"
-                                style="color: black; font-weight: 600;">JAVASCRIPT</a> and <a
-                                href="https://www.php.net/" target="_blank"
-                                style="color: rgb(17, 0, 255); font-weight: 600;">PHP</a><br>
-                            I have experience as an intern at<span> <a href="https://telkomuniversity.ac.id/"
-                                    target="_blank" style="color: #5361ff; font-weight: 600;">Telkom Bandung
-                                    University</a> And went to school at
-                                <span><a href="https://p2db.smkstelekomunikasitelesandi.sch.id/" target="_blank"
-                                        style="color: #5361ff; font-weight: 600;">SMK Telekomunikasi Telesandi
-                                        Bekasi</a></span>
-                                <div class="about__social">
-                                    <a name="linkedin" target="_blank" href="https://youtube.com/@ChlleXanDev"
-                                        class="about__social-icon"><i class='bx bxl-youtube'></i></a>
-                                    <a name="github" target="_blank" href="https://github.com/chllexandev"
-                                        class="about__social-icon"><i class='bx bxl-github'></i></a>
+                <!--===== ABOUT =====-->
+                <section class="about section" id="about">
+                    <h2 class="section-title">About</h2>
+
+                    <div class="about__container bd-grid">
+                        <div class="about__img">
+                            <img src="https://res.cloudinary.com/dswsimwec/image/upload/v1687525879/r9nvsl79apsvz86aat5j.png"
+                                alt="Rifky Eka Pratama">
+                        </div>
+
+                        <div>
+                            <h2 class="about__subtitle">I'm Rifky Eka Pratama</h2>
+                            <span class="about__profession">Frontend and Backend Developer</span>
+                            <p class="about__text">
+                                Expert <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/"
+                                    target="_blank" style="color: red; font-weight: 600;">BOOTSTRAP v5</a>, <a
+                                    href="https://www.javascript.com/" target="_blank"
+                                    style="color: black; font-weight: 600;">JAVASCRIPT</a> and <a
+                                    href="https://www.php.net/" target="_blank"
+                                    style="color: rgb(17, 0, 255); font-weight: 600;">PHP</a><br>
+                                I have experience as an intern at<span> <a href="https://telkomuniversity.ac.id/"
+                                        target="_blank" style="color: #5361ff; font-weight: 600;">Telkom Bandung
+                                        University</a> And went to school at
+                                    <span><a href="https://p2db.smkstelekomunikasitelesandi.sch.id/" target="_blank"
+                                            style="color: #5361ff; font-weight: 600;">SMK Telekomunikasi Telesandi
+                                            Bekasi</a></span>
+                                    <div class="about__social">
+                                        <a name="linkedin" target="_blank" href="https://youtube.com/@ChlleXanDev"
+                                            class="about__social-icon"><i class='bx bxl-youtube'></i></a>
+                                        <a name="github" target="_blank" href="https://github.com/chllexandev"
+                                            class="about__social-icon"><i class='bx bxl-github'></i></a>
+                                    </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!--===== SKILLS =====-->
+                <section class="skills section" id="skills">
+                    <h2 class="section-title">Skills</h2>
+
+                    <div class="skills__container bd-grid">
+                        <div class="skills__box">
+                            <h3 class="skills__subtitle">Tools & Technology</h3>
+                            <span class="skills__name"
+                                style="background-color: blue; color: white; cursor: pointer;">Tailwind</span>
+                            <span class="skills__name"
+                                style="background-color: purple; color: white; cursor: pointer;">Bootstrap</span>
+                            <span class="skills__name"
+                                style="background-color: rgb(238, 238, 104); color: black; cursor: pointer;">JavaScript</span>
+                            <span class="skills__name"
+                                style="background-color: rgb(76, 8, 155); color: white; cursor: pointer;">PHP</span>
+                            <span class="skills__name"
+                                style="background-color: rgb(112, 112, 112); color: white; cursor: pointer;">UI &
+                                UX</span>
+                            <h3 class="skills__subtitle">Other & Interpersonal Skills</h3>
+                            <span class="skills__name"
+                                style="background-color: rgb(173, 173, 173); color: white; cursor: pointer;">Team
+                                Work</span>
+                            <span class="skills__name"
+                                style="background-color: rgb(173, 173, 173); color: white; cursor: pointer;">Leadership</span>
+                        </div>
+                        <div class="skills__img">
+                            <img src="https://res.cloudinary.com/dfff7n5gi/image/upload/v1684220834/skill_qfs0vu.webp"
+                                alt="yusupsupriyadi.com">
+                        </div>
+                    </div>
+                </section>
+
+
+                <!--===== PORTFOLIO =====-->
+                <section class="portfolio section" id="portfolio">
+                    <h2 class="section-title">Portfolio</h2>
+                    <div class="portfolio__container bd-grid">
+                        <div class="portfolio__img">
+                            <img src="https://res.cloudinary.com/dswsimwec/image/upload/v1687522907/Screenshot_2023-06-23_191510_jbxvil.png"
+                                alt="tels.chllexandev.xyz">
+
+                            <div class="portfolio__link">
+                                <a href="pkl.html" class="portfolio__link-name">View details</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <!-- skill-bars -->
+
+                <style>
+                    ::selection {
+                        color: #fff;
+                        background: #6665ee;
+                    }
+
+                    html,
+                    body {
+                        height: 100%;
+                        align-items: center;
+                    }
+
+                    .skill-bars {
+                        padding: 25px 30px;
+                        max-width: 100%;
+                        width: 600px;
+                        border-radius: 10px;
+                    }
+
+                    .skill-bars .bar {
+                        margin: 20px 0;
+                    }
+
+                    .skill-bars .bar:first-child {
+                        margin-top: 0px;
+                    }
+
+                    .skill-bars .bar .info {
+                        margin-bottom: 5px;
+                    }
+
+                    .skill-bars .bar .info span {
+                        font-weight: 500;
+                        font-size: 17px;
+                        opacity: 0;
+                        animation: showText 0.5s 1s linear forwards;
+                        align-items: center;
+                    }
+
+                    @keyframes showText {
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+
+                    .bar .progress-line {
+                        height: 5px;
+                        position: relative;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        border-radius: 10px;
+                        box-shadow: inset 0 1px 1px rgba(119, 119, 119, 0.959), 0 4px rgba(119, 119, 119, 0.959);
+                        animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    @keyframes animate {
+                        100% {
+                            transform: scaleX(1);
+                        }
+                    }
+
+                    .bar .progress-line span {
+                        position: absolute;
+                        height: 100%;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.python span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        background: #3c3fff;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.html span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+
+                        transform-origin: left;
+                        background: #e7903e;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.uiux span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+                        transform-origin: left;
+
+                        background: #3c3fff;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.data span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        background: #e7903e;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.mysql span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+                        transform-origin: left;
+
+                        background: #37539e;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.nodejs span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+
+                        transform-origin: left;
+                        background: #3c3fff;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.github span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+
+                        transform-origin: left;
+                        background: #3c3fff;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line.design span {
+                        height: 170%;
+                        position: absolute;
+                        border-radius: 10px;
+                        transform: scaleX(0);
+                        transform-origin: left;
+
+                        background: #8965ee;
+                        animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+                    }
+
+                    .bar .progress-line span::before {
+                        position: absolute;
+                        content: "";
+                        top: -10px;
+                        right: 0;
+                        height: 0;
+                        width: 0;
+                        border: 7px solid transparent;
+                        border-bottom-width: 0px;
+                        border-right-width: 0px;
+                        border-top-color: #0a0a0a;
+                        opacity: 0;
+                        animation: showText2 0.5s 1.5s linear forwards;
+                    }
+
+                    .bar .progress-line span::after {
+                        position: absolute;
+                        top: -28px;
+                        right: 0;
+                        font-weight: 500;
+                        background: #070707;
+                        color: #fff;
+                        padding: 1px 8px;
+                        font-size: 12px;
+                        border-radius: 3px;
+                        opacity: 0;
+                        animation: showText2 0.5s 1.5s linear forwards;
+                    }
+
+                    @keyframes showText2 {
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+
+                    .bar .progress-line.python span{
+  width: 85%;
+  align-items: center;
+}
+.bar .progress-line.html span{
+  width: 75%;
+  align-items: center;
+}
+.bar .progress-line.uiux span{
+  width: 90%;
+  align-items: center;
+}
+.bar .progress-line.data span{
+  width: 60%;
+  align-items: center;
+}
+.bar .progress-line.mysql span{
+  width: 70%;
+  align-items: center;
+}
+.bar .progress-line.nodejs span{
+  width: 70%;
+  align-items: center;
+}
+.bar .progress-line.github span{
+  width: 80%;
+  align-items: center;
+}
+.bar .progress-line.design span{
+  width: 90%;
+  align-items: center;
+}
+
+                    .progress-line span::after {
+                        content: "";
+                    }
+
+                    .progress-line.python span::after {
+                        content: "85%";
+                        
+                    }
+
+                    .progress-line.html span::after {
+                        content: "75%";
+                        
+                    }
+
+                    .progress-line.uiux span::after {
+                        content: "90%";
+                        
+                    }
+
+                    .progress-line.data span::after {
+                        content: "60%";
+                        
+                    }
+
+                    .progress-line.mysql span::after {
+                        content: "70%";
+                        
+                    }
+
+                    .progress-line.nodejs span::after {
+                        content: "70%";
+                        
+                    }
+
+                    .progress-line.github span::after {
+                        content: "80%";
+                        
+                    }
+
+                    .progress-line.design span::after {
+                        content: "90%";
+                        
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        .skill-bars {
+                            width: 100%;
+                        }
+                    }
+                </style>
+
+
+                <section class="skillbars section" id="skillbars">
+                    <h2 class="section-title">Skill Bars</h2>
+                    <div class="contact__container bd-grid">
+                        <div class="skill-bars">
+                            <div class="bar">
+                                <div class="info">
+                                    <span>Python</span>
                                 </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
-
-                <div class="skills__container bd-grid">
-                    <div class="skills__box">
-                        <h3 class="skills__subtitle">Tools & Technology</h3>
-                        <span class="skills__name"
-                            style="background-color: blue; color: white; cursor: pointer;">Tailwind</span>
-                        <span class="skills__name"
-                            style="background-color: purple; color: white; cursor: pointer;">Bootstrap</span>
-                        <span class="skills__name"
-                            style="background-color: rgb(238, 238, 104); color: black; cursor: pointer;">JavaScript</span>
-                        <span class="skills__name"
-                            style="background-color: rgb(76, 8, 155); color: white; cursor: pointer;">PHP</span>
-                        <span class="skills__name"
-                            style="background-color: rgb(112, 112, 112); color: white; cursor: pointer;">UI & UX</span>
-                        <h3 class="skills__subtitle">Other & Interpersonal Skills</h3>
-                        <span class="skills__name"
-                            style="background-color: rgb(173, 173, 173); color: white; cursor: pointer;">Team
-                            Work</span>
-                        <span class="skills__name"
-                            style="background-color: rgb(173, 173, 173); color: white; cursor: pointer;">Leadership</span>
-                    </div>
-                    <div class="skills__img">
-                        <img src="https://res.cloudinary.com/dfff7n5gi/image/upload/v1684220834/skill_qfs0vu.webp"
-                            alt="tels.chllexandev.xyz">
-                    </div>
-                </div>
-            </section>
-        
-
-            <!--===== PORTFOLIO =====-->
-            <section class="portfolio section" id="portfolio">
-                <h2 class="section-title">Portfolio</h2>
-                <div class="portfolio__container bd-grid">
-                    <div class="portfolio__img">
-                        <img src="https://res.cloudinary.com/dswsimwec/image/upload/v1687522907/Screenshot_2023-06-23_191510_jbxvil.png"
-                            alt="yusupsupriyadi.com">
-
-                        <div class="portfolio__link">
-                            <a href="pkl.html" class="portfolio__link-name">View details</a>
+                                <div class="progress-line python">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>HTML/Bootstrap/CI Framework</span>
+                                </div>
+                                <div class="progress-line html">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>UI & UX</span>
+                                </div>
+                                <div class="progress-line uiux">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>Data Analytics</span>
+                                </div>
+                                <div class="progress-line data">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>MySQL Database</span>
+                                </div>
+                                <div class="progress-line mysql">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>JavaScript/Nodejs</span>
+                                </div>
+                                <div class="progress-line nodejs">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>Github</span>
+                                </div>
+                                <div class="progress-line github">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="bar">
+                                <div class="info">
+                                    <span>Desain Grafis</span>
+                                </div>
+                                <div class="progress-line design">
+                                    <span></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </section>
+                <!-- experience -->
+                <style>
+                    ::selection {
+                        color: #00c3ff;
+                        background: #ff7979;
+                    }
 
-                </div>
-            </section>
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
-                <div class="contact__container bd-grid">
-                    <div class="contact__info">
-                        <h3 class="contact__subtitle">EMAIL</h3>
-                        <span class="contact__text">admin@chllexandev.xyz</span>
+                    .wrapper2 {
+                        max-width: 1080px;
+                        margin: 50px auto;
+                        padding: 0 20px;
+                        position: relative;
+                    }
 
-                        <h3 class="contact__subtitle">ADRESS</h3>
-                        <span class="contact__text">Bekasi, Jawa Barat, Indonesia</span>
-                    </div>
-                    <div class="contact__form">
-                        <div class="contact__inputs">
-                            <input id="name" name="name" type="text" placeholder="Name" class="contact__input">
-                            <input id="email" name="email" type="mail" placeholder="Email" class="contact__input">
+                    .wrapper2 .center-line {
+                        position: absolute;
+                        height: 100%;
+                        width: 4px;
+                        background: #36979b;
+                        left: 50%;
+                        top: 20px;
+                        transform: translateX(-50%);
+                    }
+
+                    .wrapper2 .row1 {
+                        opacity: 0;
+                        transform: translateY(-20px);
+                        animation: fade-in 1s ease-in-out forwards, slide-down 1s ease-in-out forwards;
+                    }
+
+                    @keyframes fade-in {
+                        0% {
+                            opacity: 0;
+                        }
+
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes slide-down {
+                        0% {
+                            transform: translateY(-20px);
+                        }
+
+                        100% {
+                            transform: translateY(0);
+                        }
+                    }
+
+                    .wrapper2 .row1 {
+                        display: flex;
+                    }
+
+                    .wrapper2 .row-1 {
+                        justify-content: flex-start;
+                    }
+
+                    .wrapper2 .row-2 {
+                        justify-content: flex-end;
+                    }
+
+                    .wrapper2 .row1 section {
+                        background: #5bcbff;
+                        border-radius: 5px;
+                        width: calc(50% - 40px);
+                        padding: 20px;
+                        position: relative;
+                    }
+
+                    .wrapper2 .row1 section::before {
+                        position: absolute;
+                        content: "";
+                        height: 15px;
+                        width: 15px;
+                        background: #00b1a8;
+                        top: 28px;
+                        z-index: -1;
+                        transform: rotate(45deg);
+                    }
+
+                    .row-1 section::before {
+                        right: -7px;
+                    }
+
+                    .row-2 section::before {
+                        left: -7px;
+                    }
+
+                    .row1 section .icon,
+                    .center-line .scroll-icon {
+                        position: absolute;
+                        background: #80d7ff;
+                        height: 40px;
+                        width: 40px;
+                        text-align: center;
+                        line-height: 40px;
+                        border-radius: 50%;
+                        color: #ff7979;
+                        font-size: 17px;
+                        box-shadow: 0 0 0 4px #04b8ff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+                    }
+
+                    .center-line .scroll-icon {
+                        bottom: 0px;
+                        left: 50%;
+                        font-size: 25px;
+                        transform: translateX(-50%);
+                    }
+
+                    .row-1 section .icon {
+                        top: 15px;
+                        right: -60px;
+                    }
+
+                    .row-2 section .icon {
+                        top: 15px;
+                        left: -60px;
+                    }
+
+                    .row1 section .details,
+                    .row1 section .bottom {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    .row1 section .details .title {
+                        font-size: 22px;
+                        font-weight: 600;
+                    }
+
+                    .row1 section p {
+                        margin: 10px 0 17px 0;
+                    }
+
+                    .row1 section .bottom a {
+                        text-decoration: none;
+                        background: #ff7979;
+                        color: #fff;
+                        padding: 7px 15px;
+                        border-radius: 5px;
+                        /* font-size: 17px; */
+                        font-weight: 400;
+                        transition: all 0.3s ease;
+                    }
+
+                    .row1 section .bottom a:hover {
+                        transform: scale(0.97);
+                    }
+
+                    @media(max-width: 790px) {
+                        .wrapper2 .center-line {
+                            left: 40px;
+                        }
+
+                        .wrapper2 .row1 {
+                            margin: 30px 0 3px 60px;
+                        }
+
+                        .wrapper2 .row1 section {
+                            width: 100%;
+                        }
+
+                        .row-1 section::before {
+                            left: -7px;
+                        }
+
+                        .row-1 section .icon {
+                            left: -60px;
+                        }
+                    }
+
+                    @media(max-width: 440px) {
+
+                        .wrapper2 .center-line,
+                        .row1 section::before,
+                        .row1 section .icon {
+                            display: none;
+                        }
+
+                        .wrapper2 .row1 {
+                            margin: 10px 0;
+                        }
+                    }
+                </style>
+                <section class="timeline section" id="timeline">
+                    <h2 class="section-title">Timeline</h2>
+                    <div class="wrapper2">
+                        <div class="center-line">
+                            <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
                         </div>
-                        <textarea id="body-email" name="email_body" id="" cols="0" rows="10"
-                            class="contact__input"></textarea>
-                        <button id="btn-send-email" class="contact__button">Send</button>
+                        <div class="row1 row-1">
+                            <section>
+                                <i class="icon fas fa-home"></i>
+                                <div class="details1">
+                                    <span class="title">School:</span>
+                                    <span>Tahun 2022 - Sekarang</span>
+                                </div>
+                                <p>Saya bersekolah di jurusan multimedia. Selama saya belajar di multimedia saya
+                                    memperdalam ilmu design saya.</p>
+                                <div class="bottom">
+                                    <a href="#">Read more</a>
+                                    <i>- Rifky Eka Pratama</i>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="row1 row-2">
+                            <section>
+                                <i class="icon fas fa-star"></i>
+                                <div class="details1">
+                                    <span class="title">Freelancer:</span>
+                                    <span>2020 - Sekarang</span>
+                                </div>
+                                <p>Semasa sekolah saya adalah seorang freelancer (Pekerja bebas) seperti Web Developer,
+                                    UI/UX Designer, Desain grafis, Dan Video editing.</p>
+                                <div class="bottom">
+                                    <a href="#">Read more</a>
+                                    <i>- Rifky Eka Pratama</i>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="row1 row-1">
+                            <section>
+                                <i class="icon fas fa-rocket"></i>
+                                <div class="details1">
+                                    <span class="title">Youtube:</span>
+                                    <span>2020 - Sekarang</span>
+                                </div>
+                                <p>Selain mengisi waktu kosong saya menyempatkan diri untuk mempelajari dengan menonton
+                                    video pembelajaran seputar dunia IT</p>
+                                <div class="bottom">
+                                    <a href="#">Read more</a>
+                                    <i>- Rifky Eka Pratama</i>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="row1 row-2">
+                            <section>
+                                <i class="icon fas fa-globe"></i>
+                                <div class="details1">
+                                    <span class="title">Project Direktorat Asset & Sustainable:</span>
+                                    <span>Januari 2023 - April 2023</span>
+                                </div>
+                                <p>Pengalaman magang saya di University Telkom Bandung sebagai Direktorat Asset &
+                                    Sustainable yang juga telah menambah kemampuan saya dalam meng imput data ke dalam
+                                    Database</p>
+                                <div class="bottom">
+                                    <a href="#">Read more</a>
+                                    <i>- Rifky Eka Pratama</i>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </section>
+                <!--===== CONTACT =====-->
+                <section class="contact section" id="contact">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="contact__container bd-grid">
+                        <div class="contact__info">
+                            <h3 class="contact__subtitle">EMAIL</h3>
+                            <span class="contact__text">admin@chllexandev.xyz</span>
+
+                            <h3 class="contact__subtitle">ADRESS</h3>
+                            <span class="contact__text">Bekasi, Jawa Barat, Indonesia</span>
+                        </div>
+                        <div class="contact__form">
+                            <div class="contact__inputs">
+                                <input id="name" name="name" type="text" placeholder="Name" class="contact__input">
+                                <input id="email" name="email" type="mail" placeholder="Email" class="contact__input">
+                            </div>
+                            <textarea id="body-email" name="email_body" id="" cols="0" rows="10"
+                                class="contact__input"></textarea>
+                            <button id="btn-send-email" class="contact__button">Send</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!--===== FOOTER =====-->
+            <footer class="footer section">
+                <div class="footer__container bd-grid">
+                    <div class="footer__data">
+                        <h2 class="footer__title">Rifky Eka Pratama</h2>
+                        </h2>
+                        <p class="footer__text">I'm Rifky Eka Pratama and this is my personal website</p>
+                    </div>
+                    <div class="footer__data">
+                        <h2 class="footer__title">EXPLORE</h2>
+                        <ul>
+                            <li><a href="#home" class="footer__link">Home</a></li>
+                            <li><a href="#about" class="footer__link">About</a></li>
+                            <li><a href="#skills" class="footer__link">Skills</a></li>
+                            <li><a href="https://chllexandev.github.io/work" class="footer__link">Work</a></li>
+                            <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
+                            <li><a href="#Contact" class="footer__link">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__data">
+                        <h2 class="footer__title">FOLLOW</h2>
+                        <a name="instagram" target="_blank" href="https://instagram.com/rifkyekaxyz"
+                            class="about__social-icon"><i class='bx bxl-instagram'></i></a>
+                        <a name="github" target="_blank" href="https://github.com/chllexandev"
+                            class="about__social-icon"><i class='bx bxl-github'></i></a>
                     </div>
                 </div>
-            </section>
+            </footer>
         </main>
-        <!--===== FOOTER =====-->
-        <footer class="footer section">
-            <div class="footer__container bd-grid">
-                <div class="footer__data">
-                    <h2 class="footer__title">Rifky Eka Pratama</h2>
-                    </h2>
-                    <p class="footer__text">I'm Rifky Eka Pratama and this is my personal website</p>
-                </div>
-                <div class="footer__data">
-                    <h2 class="footer__title">EXPLORE</h2>
-                    <ul>
-                        <li><a href="#home" class="footer__link">Home</a></li>
-                        <li><a href="#about" class="footer__link">About</a></li>
-                        <li><a href="#skills" class="footer__link">Skills</a></li>
-                        <li><a href="https://chllexandev.github.io/work" class="footer__link">Work</a></li>
-                        <li><a href="#portfolio" class="footer__link">Portfolio</a></li>
-                        <li><a href="#Contact" class="footer__link">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer__data">
-                    <h2 class="footer__title">FOLLOW</h2>
-                    <a name="instagram" target="_blank" href="https://instagram.com/rifkyekaxyz"
-                        class="about__social-icon"><i class='bx bxl-instagram'></i></a>
-                    <a name="github" target="_blank" href="https://github.com/chllexandev" class="about__social-icon"><i
-                            class='bx bxl-github'></i></a>
-                </div>
-            </div>
-        </footer>
-    </main>
-    <!--===== SCROLL REVEAL =====-->
-    <script src="assets/js/scrollreveal.js"></script>
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
+        <!--===== SCROLL REVEAL =====-->
+        <script src="assets/js/scrollreveal.js"></script>
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
 
-    <script src="https://smtpjs.com/v3/smtp.js">
-    </script>
+        <script src="https://smtpjs.com/v3/smtp.js">
+        </script>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 
-    <script>
-        // window.addEventListener('load', function () {
-        //     setTimeout(function () {
-        //         $('.loading-screen').fadeOut(1000);
-        //     }, 2000);
-        // });
+        <script>
+            // window.addEventListener('load', function () {
+            //     setTimeout(function () {
+            //         $('.loading-screen').fadeOut(1000);
+            //     }, 2000);
+            // });
 
-        $(document).on('click', '#btn-send-email', function () {
-            sendEmail()
-        })
+            $(document).on('click', '#btn-send-email', function () {
+                sendEmail()
+            })
 
-        function sendEmail() {
-            Email.send({
-                SecureToken: "e9c1ef88-b467-4424-bd33-4397861e645d",
-                To: 'chllexandev@gmail.com',
-                From: 'glossyqueen06@gmail.com',
-                Subject: "🚀Email from " + $('#email').val(),
-                Body: 'Nama: ' + $('#name').val() + ' | ' + 'Pesan: ' + $('#body-email').val(),
-            }).then(
-                message => alert(
-                    message == 'OK' ? 'Email sent successfully' : 'Email sent failed, please try again later'
-                )
-            );
-        }
-    </script>
-</body>
+            function sendEmail() {
+                Email.send({
+                    SecureToken: "e9c1ef88-b467-4424-bd33-4397861e645d",
+                    To: 'chllexandev@gmail.com',
+                    From: 'glossyqueen06@gmail.com',
+                    Subject: "🚀Email from " + $('#email').val(),
+                    Body: 'Nama: ' + $('#name').val() + ' | ' + 'Pesan: ' + $('#body-email').val(),
+                }).then(
+                    message => alert(
+                        message == 'OK' ? 'Email sent successfully' : 'Email sent failed, please try again later'
+                    )
+                );
+            }
+        </script>
+    </body>
 
 </html>
