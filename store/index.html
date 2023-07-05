@@ -264,7 +264,13 @@
             paymentElement.innerHTML = "Payment: " + selectedPayment + " (Yang Harus Dibayar: " + calculateTotalPrice(selectedHarga, selectedPayment) + ")";
             invoiceNumberElement.innerHTML = "Invoice: " + invoiceNumber;
             
-            
+            var userID = sessionStorage.getItem('userID');
+        var serverID = sessionStorage.getItem('serverID');
+
+        if (userID && serverID) {
+            document.getElementById('UserID').value = userID;
+            document.getElementById('ServerID').value = serverID;
+        }
 
             confirmButton.setAttribute("onclick", "confirmPayment()");
 
@@ -335,7 +341,7 @@
             
             var invoiceNumber = sessionStorage.getItem('invoiceNumber');
 
-            var redirectUrl = "https://tels.chllexandev.xyz/store/invoice.html?harga=" + totalPrice + "&metode=" + selectedPayment + "&invoice=" + invoiceNumber + "&produk=" + selectedProduk + "&userID=" + userID + "&serverID=" + serverID;
+            var redirectUrl = "http://tels.chllexandev.xyz/store/invoice.html?harga=" + totalPrice + "&metode=" + selectedPayment + "&invoice=" + invoiceNumber + "&produk=" + selectedProduk + "&userID=" + userID + "&serverID=" + serverID;
             window.location.href = redirectUrl;
         }
 
@@ -412,11 +418,20 @@
     <div class="detail-box">
         <table>
             <tr>
-                <span for="UserID">User ID:</span>
-                <td><input class="mlid" type="number" pattern=”[0-9]” id="UserID" placeholder="Masukkan User ID"required></td>
-
-                <span for="ServerID">Server ID:</span>
-                <td><input class="mlid" type="number" min="1000" max="99999" pattern=”[0-9]” id="ServerID" placeholder="Masukkan Server ID" required></td>
+                <td>
+                    <span for="UserID">User ID:</span>
+                </td>
+                <td>
+                    <input class="mlid" type="number" pattern="[0-9]" id="UserID" placeholder="Masukkan User ID" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span for="ServerID">Server ID:</span>
+                </td>
+                <td>
+                    <input class="mlid" type="number" pattern="[0-9]" id="ServerID" placeholder="Masukkan Server ID" required>
+                </td>
             </tr>
         </table>
     </div>
@@ -480,7 +495,7 @@
               </button>
               
               <button class="shape-button payment-button" id="payment4" onclick="selectPayment('ShopeePay')">
-                <img src="logo/shopeepay.png" class="logo-image" alt="ShopeePay Logo">
+                <img src="logo/Shopeepay.png" class="logo-image" alt="ShopeePay Logo">
               </button>
               
               <button class="shape-button payment-button" id="payment5" onclick="selectPayment('GoPay')">
