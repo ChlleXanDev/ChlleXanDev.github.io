@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<title>Xan Store - Invoice</title>
+
+<head>
+    <style>
+        :root {
+            --primary-color: #282C30;
+            /* Warna utama */
+            --secondary-color: #ffffff28;
+            /* Warna sekunder */
+            --background-color: #212529;
+            /* Warna latar belakang */
+            --back-color: #2D3238;
+            /* Warna background */
+            --bayar-color: #B19973;
+            /* Warna Tombol Bayar */
+            --nick-color: #1b1e20;
+            /* Warna Tombol Bayar */
+            --text-color: #ffffff;
+            /* Warna teks */
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--back-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 10vh;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: left;
+            margin-top: 100px;
+            background-color: var(--background-color);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #181818;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 350px;
+            /* Tambahkan lebar tombol  */
+            height: 100%;
+            /* Tambahkan tinggi tombol */
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 10px;
+            border: 1px solid var(--back-color);
+            padding: 10px;
+            border-radius: 5px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+        }
+
+        .qr-code {
+            max-width: 200px;
+            height: auto;
+            border: 1px solid var(--text-color);
+            border-radius: 5px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.10.0/jspdf.umd.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        window.onload = function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            var harga = urlParams.get('harga');
+            var metodePembayaran = urlParams.get('metode');
+            var invoiceNumber = urlParams.get('invoice');
+            var jenisProduk = urlParams.get('produk');
+            var userID = urlParams.get('userID');
+            var serverID = urlParams.get('serverID');
+
+            var container = document.getElementById('container');
+            var jenisProdukElement = document.createElement('p');
+            var userIDElement = document.createElement('p');
+            var serverIDElement = document.createElement('p');
+            var hargaElement = document.createElement('p');
+            var metodeElement = document.createElement('p');
+            var bayarElement = document.createElement('p');
+            var invoiceNumberElement = document.createElement('p');
+            var nomorTransferElement = document.createElement('p');
+            var qrCodeElement = document.createElement('img');
+            qrCodeElement.classList.add('qr-code');
+
+            hargaElement.innerHTML = "Harga yang harus dibayar: " + harga;
+            metodeElement.innerHTML = "Pembayaran: " + metodePembayaran;
+            invoiceNumberElement.innerHTML = "Nomor Invoice: " + invoiceNumber;
+            jenisProdukElement.innerHTML = "Produk: " + jenisProduk;
+            userIDElement.innerHTML = "User ID: " + userID;
+            serverIDElement.innerHTML = "Server ID: " + serverID;
+
+            if (metodePembayaran === 'Dana') {
+                bayarElement.innerHTML = "Silakan membayar melalui aplikasi Dana";
+                nomorTransferElement.innerHTML = "Nomor Transfer: 082219756899 (Dana)";
+                // qrCodeElement.src = "http://127.0.0.1:5500/qris.png"; // Ganti URL gambar QR Dana
+            } else if (metodePembayaran === 'Ovo') {
+                bayarElement.innerHTML = "Silakan membayar melalui aplikasi Ovo";
+                nomorTransferElement.innerHTML = "Nomor Transfer: 082219756899 (Ovo)";
+                // qrCodeElement.src = "http://127.0.0.1:5500/qris.png"; // Ganti URL gambar QR Ovo
+            } else if (metodePembayaran === 'Qris') {
+                bayarElement.innerHTML = "Silakan Scan QRIS Berikut";
+                nomorTransferElement.innerHTML = "Silahkan Scan Qr di bawah ini";
+                qrCodeElement.src = "http://127.0.0.1:5500/qris.png"; // Ganti URL gambar QR QRIS
+            } else if (metodePembayaran === 'Jago') {
+                bayarElement.innerHTML = "Silakan membayar melalui aplikasi Jago";
+                nomorTransferElement.innerHTML = "Nomor Transfer: 082219756899 (Jago)";
+                // qrCodeElement.src = "http://127.0.0.1:5500/qris.png"; // Ganti URL gambar QR jago
+            } else if (metodePembayaran === 'ShopeePay') {
+                bayarElement.innerHTML = "Silakan membayar melalui aplikasi ShopeePay";
+                nomorTransferElement.innerHTML = "Nomor Transfer: 082219756899 (ShopeePay)";
+                // qrCodeElement.src = "http://127.0.0.1:5500/qris.png"; // Ganti URL gambar QR shoopepay
+            } else if (metodePembayaran === 'GoPay') {
+                bayarElement.innerHTML = "Silakan membayar melalui aplikasi GoPay";
+                nomorTransferElement.innerHTML = "Nomor Transfer: 082219756899 (GoPay)";
+                // qrCodeElement.src = "http://127.0.0.1:5500/qris.png"; // Ganti URL gambar QR gopay
+            }
+
+            container.appendChild(userIDElement);
+            container.appendChild(serverIDElement);
+            container.appendChild(jenisProdukElement);
+            container.appendChild(metodeElement);
+            container.appendChild(invoiceNumberElement);
+            container.appendChild(nomorTransferElement);
+            container.appendChild(hargaElement);
+            // container.appendChild(bayarElement);
+            container.appendChild(qrCodeElement);
+
+            // Fungsi untuk membuat data invoice
+            function createInvoiceData() {
+                var invoiceData = {
+                    userID: userID, // Menambahkan userID ke data invoice
+                    serverID: serverID, // Menambahkan serverID ke data invoice
+                    Produk: jenisProduk,
+                    harga: harga,
+                    Payment: metodePembayaran,
+                    Invoice: invoiceNumber,
+                };
+                return invoiceData;
+            }
+
+            // Fungsi untuk mengunduh data invoice sebagai gambar
+            function downloadInvoiceData() {
+                var invoiceData = createInvoiceData();
+                var filename = 'Invoice-Xan Store.png';
+
+                html2canvas(document.getElementById('container')).then(function (canvas) {
+                    var a = document.createElement('a');
+                    a.href = canvas.toDataURL();
+                    a.download = filename;
+                    a.click();
+                });
+            }
+
+            // Panggil fungsi untuk mengunduh data invoice saat halaman dimuat
+            downloadInvoiceData();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <h2 style="text-align: center;">Detail Pembayaran</h2>
+    </div>
+</body>
+
+</html>

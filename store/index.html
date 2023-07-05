@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<title>Xan Store - Mobile Legends</title>
+
+<head>
+    <style>
+        :root {
+            --primary-color: #282C30;
+            /* Warna utama */
+            --secondary-color: #ffffff28;
+            /* Warna sekunder */
+            --background-color: #212529;
+            /* Warna latar belakang */
+            --back-color: #2D3238;
+            /* Warna background */
+            --bayar-color: #B19973;
+            /* Warna Tombol Bayar */
+            --nick-color: #1b1e20;
+            /* Warna Tombol Bayar */
+            --text-color: #ffffff;
+            /* Warna teks */
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--back-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 10vh;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .shape-button {
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 10px 22px;
+            text-align: left;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 7px 9px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 230px;
+            /* Tambahkan lebar tombol  */
+            height: 52px;
+            /* Tambahkan tinggi tombol */
+        }
+
+        .payment-button {
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 10px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 7px 9px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 230px;
+            /* Tambahkan lebar tombol  */
+            height: 52px;
+            /* Tambahkan tinggi tombol */
+        }
+
+        .bayar-button {
+            background-color: var(--bayar-color);
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 85px;
+            /* Tambahkan lebar tombol  */
+            height: 35px;
+            /* Tambahkan tinggi tombol */
+            align-self: flex-end;
+            /* Posisikan tombol ke kanan */
+            margin-top: 2px;
+            /* Berikan sedikit ruang antara tombol dengan konten di atasnya */
+        }
+
+        .selected-button {
+            background-color: var(--secondary-color) !important;
+            box-shadow: 0 0 5px #ffffff65, 0 0 10px #ffffff65, 0 0 20px #ffffff65, 0 0 40px #ffffff65;
+            /* Efek glow */
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px;
+            background-color: var(--background-color);
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+        }
+
+        .detail-box {
+            background-color: var(--background-color);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #181818;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 755px;
+            /* Tambahkan lebar tombol  */
+            height: 100%;
+            /* Tambahkan tinggi tombol */
+
+        }
+
+        .detail1-box {
+            background-color: var(--background-color);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #181818;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 755px;
+            /* Tambahkan lebar tombol  */
+            height: 100%;
+            /* Tambahkan tinggi tombol */
+
+        }
+
+        .nick-box {
+            background-color: var(--nick-color);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #181818;
+            border-radius: 5px;
+        }
+
+        .header {
+            text-align: justify;
+            width: 95%;
+            padding: 8px;
+            font-size: 14px;
+
+        }
+
+        .header img {
+            float: left;
+            margin: 0 8px 4px 0;
+            height: 50px;
+            width: auto;
+            border-radius: 7px;
+        }
+
+        .header-title {
+            color: #575757;
+        }
+        .logo-image {
+    max-width: 40px; /* Adjust the size as needed */
+    max-height: 30px;
+    margin-right: 5px; /* Add some spacing between the logo and the text */
+  }
+  .underline {
+        display: inline-block;
+        position: relative;
+    }
+
+    .underline::after {
+        content: "";
+        position: absolute;
+        width: 30%;
+        height: 4px;
+        bottom: -2px;
+        left: 0;
+        border-radius: 60px;
+        background-color: rgb(196, 196, 41);
+        box-shadow: 0 0 5px rgb(196, 196, 41);
+    }
+    .open {
+        color: orange;
+        text-align: center;
+        margin-left: 220px;
+        font-size: 22px;
+    }
+    @media screen and (max-width: 600px) {
+
+  .mlid {
+    max-width: 100%;
+    padding: 10px;
+  }
+}
+
+.mlid {
+  background-color: white;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 63px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 7px 11px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 230px;
+  height: 15px;
+}
+    </style>
+    <script>
+        var selectedHarga = "";
+        var selectedPayment = "";
+        var pajakPercentage = {
+            'Dana': 0.05,   // Pajak 10% untuk metode pembayaran Dana
+            'Ovo': 0.05,   // Pajak 15% untuk metode pembayaran Ovo
+            'Qris': 0.05,   // Pajak 5% untuk metode pembayaran Qris
+            'Jago': 0.05,   // Pajak 20% untuk metode pembayaran Qris
+            'ShopeePay': 0.05,   // Pajak 5% untuk metode pembayaran Qris
+            'GoPay': 0.05,   // Pajak 5% untuk metode pembayaran Qris
+        };
+
+        function showPopup() {
+            if (selectedHarga === "" || selectedPayment === "") {
+                alert("Mohon lengkapi form di atas terlebih dahulu.");
+                return;
+            }
+
+            var popup = document.getElementById('popup');
+            var userID = document.getElementById('UserID').value;
+            var serverID = document.getElementById('ServerID').value;
+            sessionStorage.setItem('userID', userID);
+            sessionStorage.setItem('serverID', serverID);
+            var userIDElement = document.getElementById('popupUserID');
+            var serverIDElement = document.getElementById('popupServerID');
+            var selectedProdukElement = document.getElementById('selectedProduk');
+            var hargaElement = document.getElementById('harga');
+            var paymentElement = document.getElementById('payment');
+            var confirmButton = document.getElementById('confirmButton');
+            var invoiceNumber = generateInvoiceNumber();
+            sessionStorage.setItem('invoiceNumber', invoiceNumber);
+            var invoiceNumberElement = document.getElementById('invoiceNumber');
+            
+
+            userIDElement.innerHTML = "User ID: " + userID;
+            serverIDElement.innerHTML = "Server ID: " + serverID;
+            selectedProdukElement.innerHTML = "Produk: " + selectedProduk;
+            hargaElement.innerHTML = "Harga: " + selectedHarga;
+            paymentElement.innerHTML = "Payment: " + selectedPayment + " (Yang Harus Dibayar: " + calculateTotalPrice(selectedHarga, selectedPayment) + ")";
+            invoiceNumberElement.innerHTML = "Invoice: " + invoiceNumber;
+            
+            
+
+            confirmButton.setAttribute("onclick", "confirmPayment()");
+
+            popup.style.display = 'block';
+        }
+
+        var userID = sessionStorage.getItem('userID');
+  var serverID = sessionStorage.getItem('serverID');
+
+  if (userID && serverID) {
+    document.getElementById('UserID').value = userID;
+    document.getElementById('ServerID').value = serverID;
+  }
+
+        
+        function closePopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
+
+        function selectHarga(harga, namaProduk) {
+            selectedProduk = namaProduk;
+            selectedHarga = parseInt(harga);
+
+            // Reset warna tombol harga
+            var hargaButtons = document.getElementsByClassName('shape-button harga-button');
+            for (var i = 0; i < hargaButtons.length; i++) {
+                hargaButtons[i].classList.remove('selected-button');
+            }
+
+            // Tambahkan warna pada tombol harga yang dipilih
+            event.target.classList.add('selected-button');
+
+            // Simpan informasi produk yang dipilih ke dalam session storage
+    sessionStorage.setItem('selectedProduk', selectedProduk);
+        }
+
+        function selectPayment(payment) {
+            selectedPayment = payment;
+
+            // Reset warna tombol pembayaran
+            var paymentButtons = document.getElementsByClassName('shape-button payment-button');
+            for (var i = 0; i < paymentButtons.length; i++) {
+                paymentButtons[i].classList.remove('selected-button');
+            }
+
+            // Tambahkan warna pada tombol pembayaran yang dipilih
+            event.target.classList.add('selected-button');
+
+             // Simpan informasi metode pembayaran yang dipilih ke dalam session storage
+    sessionStorage.setItem('selectedPayment', selectedPayment);
+        }
+
+        function calculateTotalPrice(harga, payment) {
+            var pajak = pajakPercentage[payment];
+            var totalHarga = harga + (harga * pajak);
+            return formatCurrency(totalHarga);
+        }
+
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(value);
+        }
+
+        function confirmPayment() {
+            var totalPrice = calculateTotalPrice(selectedHarga, selectedPayment);
+
+            
+            var invoiceNumber = sessionStorage.getItem('invoiceNumber');
+
+            var redirectUrl = "http://127.0.0.1:5500/invoice.html?harga=" + totalPrice + "&metode=" + selectedPayment + "&invoice=" + invoiceNumber + "&produk=" + selectedProduk + "&userID=" + userID + "&serverID=" + serverID;
+            window.location.href = redirectUrl;
+        }
+
+        function downloadData() {
+            var harga = document.getElementById('harga').innerText;
+            var payment = document.getElementById('payment').innerText;
+            var total = document.getElementById('total').innerText;
+            var invoiceNumber = document.getElementById('invoiceNumber').innerText;
+
+            var data = "Harga: " + harga + "\nPayment: " + payment + "\nTotal: " + total + "\nInvoice Number: " + invoiceNumber;
+
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+            element.setAttribute('download', 'data.txt');
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+        }
+        function generateInvoiceNumber() {
+            var date = new Date();
+            var invoiceNumber = "INV" + date.getTime();
+            return invoiceNumber;
+        }
+        
+        function simpanData() {
+            var UserID = document.getElementById('UserID').value;
+            var ServerID = document.getElementById('ServerID').value;
+
+            localStorage.setItem('UserID', userid);
+            localStorage.setItem('ServerID', serverid);
+
+            // Redirect ke halaman berikutnya (misalnya invoice.html)
+            window.location.href = 'invoice.html';
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="detail1-box">
+            <div class="nick-box">
+                <span class="underline">Mobile Legends ( MLBB )</span>
+            </div>
+            <div>
+                <div class="header">
+                    <img src="logo/mlbb.png" alt="">
+                    <span class="header-title">Proses Manual</span>
+                    <br>
+                    <span>Top Up Diamond Mobile Legends</span>
+                    <br>
+                    <span>Proses Setelah Pembayaran Success</span>
+                </div>
+                <ol>
+                    <li>Masukkan <b>ID (SERVER)</b></li>
+                    <li>Pilih <b>Nominal</b> Diamond</li>
+                    <li>Pilih <b>Metode Pembayaran</b></li>
+                    <li>Tulis <b>nomor WhatsApp</b> yg benar!</li>
+                    <li>Klik <b>Beli</b> & lakukan Pembayaran</li>
+                    <li>Diamond akan langsung di proses ketika <b>pembayaran done</b></li>
+                    <li>Akan kami kabarkan ketika Diamond sudah <b>masuk</b></li>
+                </ol>
+            </div>
+            <div>
+                <span class="open"><b>Top Up Buka ( 07.00 - 22.00 ) WIB</b></span>
+            </div>
+        </div>
+
+        <!-- <br>
+    <span>Pilih Nominal</span>
+    <br> -->
+    <div class="detail-box">
+        <table>
+            <tr>
+                <span for="UserID">User ID:</span>
+                <td><input class="mlid" type="number" pattern=”[0-9]” id="UserID" placeholder="Masukkan User ID"required></td>
+
+                <span for="ServerID">Server ID:</span>
+                <td><input class="mlid" type="number" min="1000" max="99999" pattern=”[0-9]” id="ServerID" placeholder="Masukkan Server ID" required></td>
+            </tr>
+        </table>
+    </div>
+
+        <div class="detail-box">
+            <div class="nick-box">
+                <span>Pilih Nominal</span>
+            </div>
+            <button class="shape-button harga-button" id="harga1" onclick="selectHarga(20000, '86 Diamonds')">
+                <span>86 (78+8) Diamonds</span><br>
+                <span>Rp 20.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga2" onclick="selectHarga(40000, '172 Diamonds')">
+                <span>172 (156+16) Diamonds</span><br>
+                <span>Rp 40.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga3" onclick="selectHarga(60000, '257 Diamonds')">
+                <span>257 (234+23) Diamonds</span><br>
+                <span>Rp 60.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga3" onclick="selectHarga(80000, '344 Diamonds')">
+                <span>344 (312+32) Diamonds</span><br>
+                <span>Rp 80.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga3" onclick="selectHarga(105000, '429 Diamonds')">
+                <span>429 (390+90) Diamonds</span><br>
+                <span>Rp 105.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga3" onclick="selectHarga(125000, '514 Diamonds')">
+                <span>514 (468+46) Diamonds</span><br>
+                <span>Rp 125.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga3" onclick="selectHarga(145000, '600 Diamonds')">
+                <span>600 (546+54) Diamonds</span><br>
+                <span>Rp 145.000</span>
+            </button>
+            <button class="shape-button harga-button" id="harga3" onclick="selectHarga(165000, '706 Diamonds')">
+                <span>706 (625+81) Diamonds</span><br>
+                <span>Rp 165.000</span>
+            </button>
+
+        </div>
+
+        <!-- <br>
+    <span>Pilih Pembayaran</span>
+    <br> -->
+        <div class="detail1-box">
+            <div class="nick-box">
+                <span>Pilih Metode Pembayaran</span>
+            </div>
+            <button class="shape-button payment-button" id="payment1" onclick="selectPayment('Dana')">
+                <img src="logo/dana.png" class="logo-image" alt="Dana Logo">
+              </button>
+              
+              <button class="shape-button payment-button" id="payment2" onclick="selectPayment('Qris')">
+                <img src="logo/qris-logo.png" class="logo-image" alt="QRIS Logo">
+              </button>
+              
+              <button class="shape-button payment-button" id="payment3" onclick="selectPayment('Ovo')">
+                <img src="logo/ovo.png" class="logo-image" alt="Ovo Logo">
+              </button>
+              
+              <button class="shape-button payment-button" id="payment4" onclick="selectPayment('ShopeePay')">
+                <img src="logo/ShopeePay.png" class="logo-image" alt="ShopeePay Logo">
+              </button>
+              
+              <button class="shape-button payment-button" id="payment5" onclick="selectPayment('GoPay')">
+                <img src="logo/gopay.png" class="logo-image" alt="GoPay Logo">
+              </button>
+              
+              <button class="shape-button payment-button" id="payment6" onclick="selectPayment('Jago')">
+                <img src="logo/jago.png" class="logo-image" alt="Jago Logo">
+              </button>
+        </div>
+
+        <button class="bayar-button" onclick="showPopup()">Order Now</button>
+
+        <div class="popup" id="popup">
+            <div class="detail-box">
+                <div class="nick-box">
+                    <span id="popupUserID"></span>
+                </div>
+                <div class="nick-box">
+                    <span id="popupServerID"></span>
+                </div>
+                  
+                <div class="nick-box">
+                    <span id="selectedProduk"></span>
+                </div>
+                <div class="nick-box">
+                    <span id="harga"></span>
+                </div>
+                <div class="nick-box">
+                    <span id="payment"></span>
+                </div>
+                <div class="nick-box">
+                    <span id="invoiceNumber"></span>
+                </div>
+            </div>
+            <button class="bayar-button" id="confirmButton" onclick="simpanData()">Confirm</button>
+            <button class="bayar-button" onclick="closePopup()">Cancel</button>
+        </div>
+    </div>
+
+
+
+    
+</body>
+
+</html>
