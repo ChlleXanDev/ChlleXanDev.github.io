@@ -171,57 +171,156 @@
         .header-title {
             color: #575757;
         }
+
         .logo-image {
-    max-width: 40px; /* Adjust the size as needed */
-    max-height: 30px;
-    margin-right: 5px; /* Add some spacing between the logo and the text */
-  }
-  .underline {
-        display: inline-block;
-        position: relative;
-    }
+            max-width: 40px;
+            /* Adjust the size as needed */
+            max-height: 30px;
+            margin-right: 5px;
+            /* Add some spacing between the logo and the text */
+        }
 
-    .underline::after {
-        content: "";
-        position: absolute;
-        width: 30%;
-        height: 4px;
-        bottom: -2px;
-        left: 0;
-        border-radius: 60px;
-        background-color: rgb(196, 196, 41);
-        box-shadow: 0 0 5px rgb(196, 196, 41);
-    }
-    .open {
-        color: orange;
-        text-align: center;
-        margin-left: 220px;
-        font-size: 22px;
-    }
-    @media screen and (max-width: 600px) {
+        .underline {
+            display: inline-block;
+            position: relative;
+        }
 
-  .mlid {
-    max-width: 100%;
-    padding: 10px;
-  }
-}
+        .underline::after {
+            content: "";
+            position: absolute;
+            width: 30%;
+            height: 4px;
+            bottom: -2px;
+            left: 0;
+            border-radius: 60px;
+            background-color: rgb(196, 196, 41);
+            box-shadow: 0 0 5px rgb(196, 196, 41);
+        }
 
-.mlid {
-  background-color: white;
-  border: none;
-  color: rgb(0, 0, 0);
-  padding: 10px 63px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 18px;
-  margin: 7px 11px;
-  cursor: pointer;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 230px;
-  height: 15px;
-}
+        .open {
+            color: orange;
+            text-align: center;
+            margin-left: 220px;
+            font-size: 22px;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .mlid {
+                max-width: 100%;
+                padding: 10px;
+            }
+        }
+
+        .petunjuk-button {
+            background-color: var(--primary-color);
+            border: none;
+            color: white;
+            padding: 10px 22px;
+            text-align: left;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 7px 9px;
+            cursor: pointer;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 230px;
+            height: 52px;
+        }
+
+        /* CSS lainnya */
+
+        .popup-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .mlid {
+            background-color: white;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 10px 63px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 7px 11px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 230px;
+            height: 15px;
+        }
+
+        .close-button {
+            background-color: var(--bayar-color);
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 85px;
+            /* Tambahkan lebar tombol  */
+            height: 35px;
+            /* Tambahkan tinggi tombol */
+            align-self: flex-end;
+            /* Posisikan tombol ke kanan */
+            margin-top: 2px;
+            position: absolute;
+            top: 97%;
+            right: 80px;
+            transform: translate(50%, -50%);
+            /* font-size: 20px; */
+            /* color: white; */
+            /* cursor: pointer; */
+            /* background: none; */
+            /* border: none; */
+        }
+
+        .close-button:hover {
+            background-color: var(--bayar-color) !important;
+            box-shadow: 0 0 5px #B19973, 0 0 10px #B19973, 0 0 20px #B19973, 0 0 40px #B19973;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .shape-button,
+            .payment-button,
+            .bayar-button,
+            .petunjuk-button,
+            .mlid {
+                max-width: 100%;
+            }
+
+            .bayar-button,
+            .close-button {
+                align-self: center;
+                margin-top: 10px;
+            }
+
+            .header {
+                text-align: center;
+            }
+
+            .header img {
+                float: none;
+                margin-bottom: 10px;
+            }
+
+            .open {
+                margin-left: 0;
+            }
+        }
+        
     </style>
     <script>
         var selectedHarga = "";
@@ -255,7 +354,7 @@
             var invoiceNumber = generateInvoiceNumber();
             sessionStorage.setItem('invoiceNumber', invoiceNumber);
             var invoiceNumberElement = document.getElementById('invoiceNumber');
-            
+
 
             userIDElement.innerHTML = "User ID: " + userID;
             serverIDElement.innerHTML = "Server ID: " + serverID;
@@ -263,14 +362,14 @@
             hargaElement.innerHTML = "Harga: " + selectedHarga;
             paymentElement.innerHTML = "Payment: " + selectedPayment + " (Yang Harus Dibayar: " + calculateTotalPrice(selectedHarga, selectedPayment) + ")";
             invoiceNumberElement.innerHTML = "Invoice: " + invoiceNumber;
-            
-            var userID = sessionStorage.getItem('userID');
-        var serverID = sessionStorage.getItem('serverID');
 
-        if (userID && serverID) {
-            document.getElementById('UserID').value = userID;
-            document.getElementById('ServerID').value = serverID;
-        }
+            var userID = sessionStorage.getItem('userID');
+            var serverID = sessionStorage.getItem('serverID');
+
+            if (userID && serverID) {
+                document.getElementById('UserID').value = userID;
+                document.getElementById('ServerID').value = serverID;
+            }
 
             confirmButton.setAttribute("onclick", "confirmPayment()");
 
@@ -278,14 +377,14 @@
         }
 
         var userID = sessionStorage.getItem('userID');
-  var serverID = sessionStorage.getItem('serverID');
+        var serverID = sessionStorage.getItem('serverID');
 
-  if (userID && serverID) {
-    document.getElementById('UserID').value = userID;
-    document.getElementById('ServerID').value = serverID;
-  }
+        if (userID && serverID) {
+            document.getElementById('UserID').value = userID;
+            document.getElementById('ServerID').value = serverID;
+        }
 
-        
+
         function closePopup() {
             var popup = document.getElementById('popup');
             popup.style.display = 'none';
@@ -305,7 +404,7 @@
             event.target.classList.add('selected-button');
 
             // Simpan informasi produk yang dipilih ke dalam session storage
-    sessionStorage.setItem('selectedProduk', selectedProduk);
+            sessionStorage.setItem('selectedProduk', selectedProduk);
         }
 
         function selectPayment(payment) {
@@ -320,8 +419,8 @@
             // Tambahkan warna pada tombol pembayaran yang dipilih
             event.target.classList.add('selected-button');
 
-             // Simpan informasi metode pembayaran yang dipilih ke dalam session storage
-    sessionStorage.setItem('selectedPayment', selectedPayment);
+            // Simpan informasi metode pembayaran yang dipilih ke dalam session storage
+            sessionStorage.setItem('selectedPayment', selectedPayment);
         }
 
         function calculateTotalPrice(harga, payment) {
@@ -338,7 +437,7 @@
         function confirmPayment() {
             var totalPrice = calculateTotalPrice(selectedHarga, selectedPayment);
 
-            
+
             var invoiceNumber = sessionStorage.getItem('invoiceNumber');
 
             var redirectUrl = "http://tels.chllexandev.xyz/store/invoice.html?harga=" + totalPrice + "&metode=" + selectedPayment + "&invoice=" + invoiceNumber + "&produk=" + selectedProduk + "&userID=" + userID + "&serverID=" + serverID;
@@ -366,7 +465,7 @@
             var invoiceNumber = "INV" + date.getTime();
             return invoiceNumber;
         }
-        
+
         function simpanData() {
             var UserID = document.getElementById('UserID').value;
             var ServerID = document.getElementById('ServerID').value;
@@ -377,6 +476,16 @@
             // Redirect ke halaman berikutnya (misalnya invoice.html)
             window.location.href = 'invoice.html';
         }
+        function showPetunjukPopup() {
+            var popup = document.getElementById('petunjukPopup');
+            popup.style.display = 'block';
+        }
+
+        function closePetunjukPopup() {
+            var popup = document.getElementById('petunjukPopup');
+            popup.style.display = 'none';
+        }
+        
     </script>
 </head>
 
@@ -415,27 +524,37 @@
         <!-- <br>
     <span>Pilih Nominal</span>
     <br> -->
-    <div class="detail-box">
-        <table>
-            <tr>
-                <td>
-                    <span for="UserID">User ID:</span>
-                </td>
-                <td>
-                    <input class="mlid" type="number" pattern="[0-9]" id="UserID" placeholder="Masukkan User ID" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <span for="ServerID">Server ID:</span>
-                </td>
-                <td>
-                    <input class="mlid" type="number" pattern="[0-9]" id="ServerID" placeholder="Masukkan Server ID" required>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <div class="detail-box">
+            <table>
+                <tr>
+                    <td>
+                        <span for="UserID">User ID:</span>
+                    </td>
+                    <td>
+                        <input class="mlid" type="number" pattern="[0-9]" id="UserID" placeholder="Masukkan User ID"
+                            required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span for="ServerID">Server ID:</span>
+                    </td>
+                    <td>
+                        <input class="mlid" type="number" pattern="[0-9]" id="ServerID" placeholder="Masukkan Server ID"
+                            required>
+                    </td>
+                </tr>
+            </table>
+            <button class="bayar-button" onclick="showPetunjukPopup()">Petunjuk</button>
+            <div id="petunjukPopup" class="popup">
+                <img class="popup-image" src="https://ourastore.com/assets/img/1662992378ML.jpg" alt="Petunjuk">
+                <button class="close-button" onclick="closePetunjukPopup()">Close</button>
+            </div>
+    
+            <!-- Konten lainnya -->
+        </div>
 
+        
         <div class="detail-box">
             <div class="nick-box">
                 <span>Pilih Nominal</span>
@@ -484,27 +603,27 @@
             </div>
             <button class="shape-button payment-button" id="payment1" onclick="selectPayment('Dana')">
                 <img src="logo/dana.png" class="logo-image" alt="Dana Logo">
-              </button>
-              
-              <button class="shape-button payment-button" id="payment2" onclick="selectPayment('Qris')">
+            </button>
+
+            <button class="shape-button payment-button" id="payment2" onclick="selectPayment('Qris')">
                 <img src="logo/qris-logo.png" class="logo-image" alt="QRIS Logo">
-              </button>
-              
-              <button class="shape-button payment-button" id="payment3" onclick="selectPayment('Ovo')">
+            </button>
+
+            <button class="shape-button payment-button" id="payment3" onclick="selectPayment('Ovo')">
                 <img src="logo/ovo.png" class="logo-image" alt="Ovo Logo">
-              </button>
-              
-              <button class="shape-button payment-button" id="payment4" onclick="selectPayment('ShopeePay')">
-                <img src="logo/shopeepay.png" class="logo-image" alt="ShopeePay Logo">
-              </button>
-              
-              <button class="shape-button payment-button" id="payment5" onclick="selectPayment('GoPay')">
+            </button>
+
+            <button class="shape-button payment-button" id="payment4" onclick="selectPayment('ShopeePay')">
+                <img src="logo/Shopeepay.png" class="logo-image" alt="ShopeePay Logo">
+            </button>
+
+            <button class="shape-button payment-button" id="payment5" onclick="selectPayment('GoPay')">
                 <img src="logo/gopay.png" class="logo-image" alt="GoPay Logo">
-              </button>
-              
-              <button class="shape-button payment-button" id="payment6" onclick="selectPayment('Jago')">
+            </button>
+
+            <button class="shape-button payment-button" id="payment6" onclick="selectPayment('Jago')">
                 <img src="logo/jago.png" class="logo-image" alt="Jago Logo">
-              </button>
+            </button>
         </div>
 
         <button class="bayar-button" onclick="showPopup()">Order Now</button>
@@ -517,7 +636,7 @@
                 <div class="nick-box">
                     <span id="popupServerID"></span>
                 </div>
-                  
+
                 <div class="nick-box">
                     <span id="selectedProduk"></span>
                 </div>
@@ -538,7 +657,7 @@
 
 
 
-    
+
 </body>
 
 </html>
