@@ -1582,19 +1582,21 @@
                 sendEmail()
             })
 
-            function sendEmail() {
-                Email.send({
-                    SecureToken: "8D7BBC51E41A22B8004D42232DF02F0A99ED",
-                    To: 'chllexandev@gmail.com',
-                    From: 'chllexandev@gmail.com',
-                    Subject: "🚀Email from " + $('#email').val(),
-                    Body: 'Nama: ' + $('#name').val() + ' | ' + 'Pesan: ' + $('#body-email').val(),
-                }).then(
-                    message => alert(
-                        message == 'OK' ? 'Email sent successfully' : 'Email sent failed, please try again later'
-                    )
-                );
-            }
+            function SendEmail() {
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "chllexandev@gmail.com",
+                Password: "8D7BBC51E41A22B8004D42232DF02F0A99ED",
+                To: "chllexandev@gmail.com",
+                From: "chllexandev@gmail.com",
+                Subject: "🚀Email from " + $('#email').val(),
+                Body: 'Nama: ' + $('#name').val() + ' | ' + 'Pesan: ' + $('#body-email').val(),
+            }).then(
+                message => alert(message == 'OK' ? 'Email sent successfully' : 'Email sent failed, please try again later')
+            );
+
+        }
         </script>
     </body>
 
