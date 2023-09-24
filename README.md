@@ -1,4 +1,4 @@
 # ChlleXanDev.github.io
 portofolio
 Link web:
-https://tels.chllexandev.xyz
+https://www.chllexandev.com
